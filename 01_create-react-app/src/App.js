@@ -4,14 +4,50 @@ import './App.css';
 
 const App = () => {
     return (
-        <div className='App'>
-            SIMPLE HTML
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JS</li>
-                <li>React</li>
-            </ul>
+        <div>
+            <Header />
+            <Technologies />
+            <ChtotoTipaTega />
+        </div>
+    );
+};
+
+const ChtotoTipaTega = () => {
+    return <div>Kakoe-to slovo</div>;
+};
+
+const Technologies = () => {
+    return (
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JS</li>
+            <li>React</li>
+        </ul>
+    );
+};
+
+const Header = () => {
+    return (
+        <div class='header'>
+            <div class='container'>
+                <div class='header-content'>
+                    <div class='logo'></div>
+                    <div class='header-menu'>
+                        <ul>
+                            <a href='#'>
+                                <li>button_1</li>
+                            </a>
+                            <a href='#'>
+                                <li>button_2</li>
+                            </a>
+                            <a href='#'>
+                                <li>button_3</li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
