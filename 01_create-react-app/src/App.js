@@ -1,53 +1,16 @@
 // EDITED VERSION \/
 
 import './App.css';
+import ChtotoTipaTega from './ChtotoTipaTega';
+// import Header from './Header';
+import Technologies from './Header';
 
 const App = () => {
     return (
         <div>
-            <Header />
+            {/* <Header /> */}
             <Technologies />
             <ChtotoTipaTega />
-        </div>
-    );
-};
-
-const ChtotoTipaTega = () => {
-    return <div>Kakoe-to slovo</div>;
-};
-
-const Technologies = () => {
-    return (
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JS</li>
-            <li>React</li>
-        </ul>
-    );
-};
-
-const Header = () => {
-    return (
-        <div class='header'>
-            <div class='container'>
-                <div class='header-content'>
-                    <div class='logo'></div>
-                    <div class='header-menu'>
-                        <ul>
-                            <a href='#'>
-                                <li>button_1</li>
-                            </a>
-                            <a href='#'>
-                                <li>button_2</li>
-                            </a>
-                            <a href='#'>
-                                <li>button_3</li>
-                            </a>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 };
