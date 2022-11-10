@@ -1,16 +1,22 @@
 // EDITED VERSION \/
 
+import React from 'react';
 import './App.css';
-import ChtotoTipaTega from './ChtotoTipaTega';
-// import Header from './Header';
-import Technologies from './Header';
 
 const App = () => {
     return (
-        <div>
-            {/* <Header /> */}
-            <Technologies />
-            <ChtotoTipaTega />
+        <div className='wrapper-app'>
+            <header className='header'>
+                <img
+                    src='https://play-lh.googleusercontent.com/DTzWtkxfnKwFO3ruybY1SKjJQnLYeuK3KmQmwV5OQ3dULr5iXxeEtzBLceultrKTIUTr'
+                    alt='logotype'
+                />
+            </header>
+            <nav className='nav'>
+                <div>kek</div>
+                <div>lol</div>
+            </nav>
+            <main className='content'>main content</main>
         </div>
     );
 };
@@ -24,9 +30,9 @@ export default App;
 
 // function App() {
 //     return (
-//         <div className='App'>
-//             <header className='App-header'>
-//                 <img src={logo} className='App-logo' alt='logo' />
+//         <div classNameName='App'>
+//             <header classNameName='App-header'>
+//                 <img src={logo} classNameName='App-logo' alt='logo' />
 //                 <p>
 //                     <span style={{ color: '#61DAFB' }}>
 //                         [01_create-react-app]
@@ -34,7 +40,7 @@ export default App;
 //                     Edit <code>src/App.js</code> and save to reload.
 //                 </p>
 //                 <a
-//                     className='App-link'
+//                     classNameName='App-link'
 //                     href='https://reactjs.org'
 //                     target='_blank'
 //                     rel='noopener noreferrer'>
