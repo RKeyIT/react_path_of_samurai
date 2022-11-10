@@ -1,18 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper-app {
   display: grid;
   grid-template-areas: 
-  'header header header'
-  'nav content content';
+  'header'
+  'main'
+  'footer';
+  margin: 0 auto;
 }
 
-.header {
-  grid-area: header;
+.container {
+  max-width: 1200px
+}
+
+.main {
+  display: grid;
+  grid-area: main;
+  grid-template-areas: 
+  'nav content content';
 }
 
 .nav {
   grid-area: nav;
+  background-color: #311;
 }
 
 .content {
   grid-area: content;
+  background-color: #113;
+}
+
+.background_1 {
+  width: 100%;
 }

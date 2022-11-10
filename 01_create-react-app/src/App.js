@@ -2,21 +2,47 @@
 
 import React from 'react';
 import './App.css';
+import Header from './components/Header';
 
 const App = () => {
     return (
         <div className='wrapper-app'>
-            <header className='header'>
-                <img
-                    src='https://play-lh.googleusercontent.com/DTzWtkxfnKwFO3ruybY1SKjJQnLYeuK3KmQmwV5OQ3dULr5iXxeEtzBLceultrKTIUTr'
-                    alt='logotype'
-                />
-            </header>
-            <nav className='nav'>
-                <div>kek</div>
-                <div>lol</div>
-            </nav>
-            <main className='content'>main content</main>
+            <Header />
+            <main className='main'>
+                <nav className='nav'>
+                    <div>
+                        <a href='#0'>Profile</a>
+                    </div>
+                    <div>
+                        <a href='#0'>Messages</a>
+                    </div>
+                    <div>
+                        <a href='#0'>News</a>
+                    </div>
+                    <div>
+                        <a href='#0'>Music</a>
+                    </div>
+                    <div>
+                        <a href='#0'>Settings</a>
+                    </div>
+                </nav>
+                <div className='content'>
+                    <div className='background-img'>
+                        <img
+                            className='background_1'
+                            src='https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg'
+                            alt='background'
+                        />
+                    </div>
+                    <div>ava + descr</div>
+                    <div>
+                        my posts
+                        <div>new post</div>
+                        <div>posted 1</div>
+                        <div>posted 2</div>
+                    </div>
+                </div>
+            </main>
         </div>
     );
 };
