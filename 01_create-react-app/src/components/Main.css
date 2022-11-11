@@ -1,0 +1,16 @@
+.main .wrapper {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg');
+    background-size: cover;
+}
+
+.main-grid-container {
+    display: grid;
+    grid-area: main;
+    grid-template-areas: 
+    'Navbar content content';
+}
+
+.content {
+    grid-area: content;
+    background-color: hsla(240, 49%, 13%, 0.8);
+}

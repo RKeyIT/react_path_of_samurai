@@ -1,17 +1,23 @@
 .header {
     grid-area: header;
+}
+.header .wrapper {
+    display: flex;
     background-color: #111;
-    height: 80px;
-    padding: 0 25px
+    color:rgba(238, 238, 238, 0.9);
+}
+
+.header .container {
+    height: 60px;
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 .header-content {
-    display: grid;
+    display: flex;
+    width: 100%;
     justify-content: space-between;
-    place-items: center;
-/* PROBLEM WITH VERTICAL CENTRYING */
-    grid-template-areas: 
-    'logotype header-menu header-menu';
+    align-items: center;
 }
 
 .logotype {
@@ -20,10 +26,37 @@
     border-radius: 50%;
     background-image: url(https://play-lh.googleusercontent.com/DTzWtkxfnKwFO3ruybY1SKjJQnLYeuK3KmQmwV5OQ3dULr5iXxeEtzBLceultrKTIUTr);
     background-size: cover;
-    grid-area: logotype;
 }
 
 .header-menu {
-    background-color: red;
-    grid-area: header-menu;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+}
+
+.header-menu-list {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.header-menu-list-item {
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    height: 40px;
+    width: 100%;
+    background-color: rgba(64, 17, 96, 0.8);
+    border: 3px solid rgba(240, 248, 255, 0.4);
+    border-radius: 5px;
+}
+
+.header-menu-list-item:hover {
+    background-color: rgba(17, 79, 96, 0.3);
+    border: 3px solid rgba(240, 248, 255, 0.5);
 }
