@@ -2,8 +2,8 @@
 
 import React from 'react';
 import './App.css';
-import Header from './components/Header';
-import Main from './components/Main';
+import Header from './components/general-structures/Header';
+import Main from './components/general-structures/Main';
 
 const App = () => {
     return (

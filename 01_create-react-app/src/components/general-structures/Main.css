@@ -7,10 +7,11 @@
     display: grid;
     grid-area: main;
     grid-template-areas: 
-    'Navbar content content';
+    'Navbar Content Content Content Content';
+    gap: 10px;
 }
 
-.content {
-    grid-area: content;
+.Content {
+    grid-area: Content;
     background-color: hsla(240, 49%, 13%, 0.8);
 }
