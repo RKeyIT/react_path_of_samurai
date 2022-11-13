@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './NavbarItem.module.css';
 
-const NavbarItem = () => {
+const NavbarItem = (props) => {
     return (
-        <a href='#0' className={styles.item}>
-            <li className={styles.text}>NAVBAR_ITEM</li>
+        <a href={props.link} className={styles.item}>
+            <li className={styles.text}>{props.name}</li>
         </a>
     );
 };

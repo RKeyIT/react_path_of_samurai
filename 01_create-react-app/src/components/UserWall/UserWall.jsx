@@ -12,12 +12,22 @@ const UserWall = () => {
             </div>
             <div className={styles.posted}>
                 posted-posts
-                <UserPost />
-                <UserPost />
-                <UserPost />
-                <UserPost />
-                <UserPost />
-                <div className={styles.item}>Post 2</div>
+                <UserPost
+                    name='Alex Beachman'
+                    message='How are you?'
+                    likes='6'
+                    comments='0'
+                />
+                <UserPost
+                    name='Bartosz Czarny'
+                    message='Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Corporis distinctio perferendis accusamus cupiditate
+                        necessitatibus velit! Fugiat officia explicabo, quia quo
+                        magnam non saepe! Dicta facilis debitis quae, voluptate
+                        aliquam veritatis?'
+                    likes='34'
+                    comments='5'
+                />
             </div>
         </div>
     );

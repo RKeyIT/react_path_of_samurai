@@ -7,12 +7,19 @@
 
 .post_data,
 .post_options {
+    margin: 10px;
     display: flex;
     flex-flow: row nowrap;
 }
 
+.post_options {
+    display: flex;
+    justify-content: space-between;
+    color: rgba(10, 10, 10, 0.6)
+}
+
 .avatar {
-    margin: 10px;
+    margin-right: 10px;
     min-width: 50px;
     height: 50px;
     border-radius: 50%;
