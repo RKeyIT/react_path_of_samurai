@@ -1,0 +1,16 @@
+.item {
+    margin: 5px;
+    background-color: rgba(245, 245, 245, 0.614);
+    border-radius: 15px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.text {
+    /* НЕ РАБОТАЕТ */
+    text-transform: capitalize;
+}

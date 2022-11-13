@@ -1,7 +1,7 @@
 import React from 'react';
-import './Presentation.css';
+import './UserPage.css';
 
-const UserPresentation = () => {
+const UserPage = () => {
     return (
         <div className='user-presentation'>
             <div className='user-avatar'>user-avatar</div>
@@ -32,4 +32,4 @@ const UserPresentation = () => {
     );
 };
 
-export default UserPresentation;
+export default UserPage;

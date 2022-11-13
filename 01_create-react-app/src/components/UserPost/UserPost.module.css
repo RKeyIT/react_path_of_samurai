@@ -1,0 +1,24 @@
+.post {
+    margin: 10px;
+    border: 1px #222 solid;
+    border-radius: 5px;
+    background-color: rgba(245, 245, 220, 0.8);
+}
+
+.post_data,
+.post_options {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.avatar {
+    margin: 10px;
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #222;
+    background-image: url('https://play-lh.googleusercontent.com/Ew7HkAyuZeKrb93Cjhay-oUm5iJFA808RcRu_9ys2zqbZHPq3yceN_kL6Wo5Yb1DcCEC');
+    background-size: cover;
+}
+
+.content {}

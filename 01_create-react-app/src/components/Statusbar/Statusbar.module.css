@@ -1,4 +1,4 @@
-.profile-wallpaper {
+.profile_wallpaper {
     height: 140px;
     display: flex;
     justify-content: center;
@@ -8,9 +8,9 @@
     width: 100%;
 }
 
-.profile-wallpaper {
+.profile_status {
     font-size: 3rem;
     color: hsla(350, 100%, 95%, 1);
     text-shadow: -2px -2px #591111, 2px 2px #401160,
-    2px -2px #11592e, -2px 2px #114f60;
+        2px -2px #11592e, -2px 2px #114f60;
 }

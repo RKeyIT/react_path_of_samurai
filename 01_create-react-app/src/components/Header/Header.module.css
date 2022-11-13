@@ -1,0 +1,16 @@
+.header {
+    grid-area: header;
+    display: flex;
+    background-color: #111;
+    color: rgba(238, 238, 238, 0.9);
+    height: 80px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
