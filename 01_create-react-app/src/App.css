@@ -30,3 +30,7 @@
   grid-template-columns: 200px 1fr;
   gap: 10px;
 }
+
+.content {
+  background-color: rgba(245, 245, 220, 0.8);
+}
