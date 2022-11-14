@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Main.module.css';
 import Navbar from '../Navbar/Navbar';
-import Content from '../Content/Content';
+import Profile from '../Profile/Profile';
 
 const Main = () => {
     return (
@@ -9,7 +9,7 @@ const Main = () => {
             <div className='container'>
                 <div className={styles.grid_container}>
                     <Navbar />
-                    <Content />
+                    <Profile />
                 </div>
             </div>
         </main>

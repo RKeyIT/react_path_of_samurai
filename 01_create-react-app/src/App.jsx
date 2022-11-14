@@ -3,13 +3,26 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
-import Main from './components/Main/Main';
+// import Main from './components/Main/Main';
+import styles from "./components/Main/Main.module.css";
+import Navbar from "./components/Navbar/Navbar";
+import Profile from "./components/Profile/Profile";
+import Dialogues from "./components/Dialogues/Dialogues";
 
 const App = () => {
     return (
         <div className='wrapper-app'>
             <Header />
-            <Main />
+            {/*<Main />*/}
+            <main className={styles.main}>
+                <div className='container'>
+                    <div className={styles.grid_container}>
+                        <Navbar />
+                        {/*<Profile />*/}
+                        <Dialogues />
+                    </div>
+                </div>
+            </main>
         </div>
     );
 };
