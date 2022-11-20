@@ -6,10 +6,10 @@ const Navbar = () => {
     return (
         <nav className={styles.Navbar}>
             <ul className={styles.list}>
-                <NavbarItem name='Profile' link='##' />
-                <NavbarItem name='Messages' link='##' />
-                <NavbarItem name='Community' link='##' />
-                <NavbarItem name='Settings' link='##' />
+                <NavbarItem name='Profile' link='/profile' />
+                <NavbarItem name='Dialogues' link='/dialogues' />
+                <NavbarItem name='Community' link='/community' />
+                <NavbarItem name='Settings' link='/settings' />
             </ul>
         </nav>
     );

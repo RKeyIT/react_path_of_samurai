@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './NavbarItem.module.css';
+import {NavLink} from "react-router-dom";
 
 const NavbarItem = (props) => {
     return (
-        <a href={props.link} className={styles.item}>
-            <li className={styles.text}>{props.name}</li>
-        </a>
+        <NavLink to={props.link} className={data => data.isActive ? `${styles.active} ${styles.item}` : styles.item}>
+            <li>{props.name}</li>
+        </NavLink>
     );
 };
 

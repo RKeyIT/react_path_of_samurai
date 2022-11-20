@@ -8,10 +8,5 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-}
-
-.content {
-    display: flex;
-    width: 100%;
     justify-content: space-between;
 }
