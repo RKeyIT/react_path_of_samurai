@@ -1,5 +1,6 @@
 .Navbar {
     background-color: rgba(51, 17, 17, 0.75);
+    grid-area: navbar;
 }
 
 .list {

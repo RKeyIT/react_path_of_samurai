@@ -13,30 +13,14 @@ body {
 .wrapper-app {
   display: grid;
   grid-template-areas: 
-  'header'
-  'main'
-  'footer';
-
+  "header header"
+  "navbar main"
+  "navbar main";
+  grid-template-columns: 1fr 5fr;
 }
 
-.container {
-  margin: 0 auto;
-  /*width: 1200px;*/
-  /*Убрано ограничение ширины*/
-  /*padding: 0 20px;*/
-}
-
-/**/
 .main {
-  /*background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg');*/
-  /*background-size: cover;*/
-}
-
-.grid_container {
   grid-area: main;
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  /*gap: 10px;*/
 }
 
 .content {

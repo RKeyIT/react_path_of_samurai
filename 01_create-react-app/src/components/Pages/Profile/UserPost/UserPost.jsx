@@ -1,7 +1,7 @@
 import React from 'react';
-import Like from '../Like/Like';
-import PostComments from '../PostComments/PostComments';
-import PostOptions from '../PostOptions/PostOptions';
+import Like from '../../../Action/Like/Like';
+import Comments from '../../../Action/Comments/Comments';
+import PostOptions from '../../../Action/PostOptions/PostOptions';
 import styles from './UserPost.module.css';
 
 const UserPost = (props) => {
@@ -16,7 +16,7 @@ const UserPost = (props) => {
             </div>
             <div className={styles.post_options}>
                 <Like amount={props.likes} />
-                <PostComments comments={props.comments} />
+                <Comments comments={props.comments} />
                 <PostOptions />
             </div>
         </div>

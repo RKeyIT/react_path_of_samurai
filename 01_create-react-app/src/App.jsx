@@ -3,10 +3,9 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
-// import Main from './components/Main/Main';
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
-import Dialogues from "./components/Dialogues/Dialogues";
+import Profile from "./components/Pages/Profile/Profile";
+import Dialogues from "./components/Pages/Dialogues/Dialogues";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 const App = () => {
@@ -14,20 +13,12 @@ const App = () => {
         <BrowserRouter>
             <div className='wrapper-app'>
                 <Header />
+                <Navbar />
                 <main className="main">
-                    <div className='container'>
-                        <div className="grid_container">
-                            <Navbar />
-                            <div className="content">
-
-                                <Routes>
-                                    <Route path="/profile" element={<Profile />} />
-                                    <Route path="/dialogues/*" element={<Dialogues />}/>
-                                </Routes>
-
-                            </div>
-                        </div>
-                    </div>
+                    <Routes>
+                        <Route path="/profile/*" element={<Profile/>}/>
+                        <Route path="/dialogues/*" element={<Dialogues/>}/>
+                    </Routes>
                 </main>
             </div>
         </BrowserRouter>
