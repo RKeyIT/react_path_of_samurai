@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./Inbox.module.css"
 
-const Inbox = () => {
+const Inbox = (props) => {
     return (
-        <div className={styles.Inbox}>INBOX</div>
+        <div className={styles.Inbox}>{props.message}</div>
     )
 }
+
 
 export default Inbox;

@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./Outbox.module.css"
 
-const Outbox = () => {
+const Outbox = (props) => {
     return (
         <div className={styles.Outbox}>
             {/*<Message text={props.text} />*/}
             <div>
-                OUTBOX
+                {props.message}
             </div>
         </div>
     )
