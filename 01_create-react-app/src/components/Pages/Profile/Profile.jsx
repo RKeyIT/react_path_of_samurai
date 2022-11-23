@@ -7,12 +7,13 @@ import styles from './Profile.module.css';
 const Profile = (props) => {
     // Профиль получает на вход:
     // 1. айди пользователя
+    let id = props.id
 
     return (
         <div className={styles.Content}>
-            <Statusbar id={props.id} />
-            <UserPage id={props.id} />
-            <UserWall id={props.id} />
+            <Statusbar id={id} />
+            <UserPage id={id} />
+            <UserWall id={id} />
         </div>
     );
 };
