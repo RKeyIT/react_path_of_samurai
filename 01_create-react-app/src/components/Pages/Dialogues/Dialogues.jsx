@@ -6,28 +6,14 @@ import ChatInfo from "./ChatInfo/ChatInfo";
 import Messages from "./Messages/Messages";
 
 const Dialogues = (props) => {
+    // Диалоги получает на вход:
+    // 1. Список контактов и мапит их в компоненты Contact сразу
+    // 2. Списки сообщений и передаёт их в пропсах компоненту Messages
 
-    const ContactsData = [
-        {id: '0', username: 'PATIENT_ZERO'},
-        {id: '1', username: 'NOT_User_NAME'},
-        {id: '2', username: 'Kirill Bohateriov'},
-        {id: '3', username: ''},
-        {id: '4', username: 'Kardan Wislouhij'},
-    ];
+    // Теперь эта дата поступает из index.js - ContactsData, MessagesData
     const contacts =
-        ContactsData.map(el => <Contact id={el.id} username={el.username}/>)
+        props.ContactsData.map(el => <Contact id={el.id} username={el.username}/>)
 
-    const MessagesData = [
-        {id: '0', ownerId: 123423, message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.\n' +
-                '                        Corporis distinctio perferendis accusamus cupiditate\n' +
-                '                        necessitatibus velit! Fugiat officia explicabo, quia quo\n' +
-                '                        magnam non saepe! Dicta facilis debitis quae, voluptate\n' +
-                '                        aliquam veritatis?'},
-        {id: '1', ownerId: 123423, message: 'NOT_User_NAME'},
-        {id: '2', ownerId: 123423, message: 'KEK!!=D'},
-        {id: '3', ownerId: 123423, message: 'HERE WAS MESSAGE'},
-        {id: '4', ownerId: 123423, message: ''},
-    ];
 
     return (
         <div className={styles.Dialogues}>
@@ -38,7 +24,7 @@ const Dialogues = (props) => {
             <div className={styles.messages}>
                 <ChatInfo user_name="user_name" last_online="last_online"/>
                 <Search name="message_searching" id="message_searching"/>
-                <Messages id={props.id} MessagesData={MessagesData}/>
+                <Messages id={props.id} MessagesData={props.MessagesData}/>
             </div>
         </div>
     )

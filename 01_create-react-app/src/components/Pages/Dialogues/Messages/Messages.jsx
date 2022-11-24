@@ -6,7 +6,7 @@ import Outbox from "../Outbox/Outbox";
 const Messages = (props) => {
 
     const isFromCurrentUser = ownerId => {
-        return ownerId === "000000" ? true : false
+        return ownerId === "000000" // ? true : false - выражение итак вернёт тру или фолс!
     //    '000000' is ID of user who opened messages from his account
     //    That's need for different (My/Not my) showing messages
     }

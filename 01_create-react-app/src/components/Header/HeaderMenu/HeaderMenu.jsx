@@ -6,10 +6,10 @@ const HeaderMenu = () => {
     return (
         <div className={styles.menu}>
             <ul className={styles.list}>
-                <HeaderMenuItem name='Learnings' link='#' />
-                <HeaderMenuItem name='Teaching' link='#' />
-                <HeaderMenuItem name='Content' link='#' />
-                <HeaderMenuItem name='Donate' link='#' />
+                <HeaderMenuItem name='Learnings' link='/learnings' />
+                <HeaderMenuItem name='Teaching' link='/teaching' />
+                <HeaderMenuItem name='Content' link='/content' />
+                <HeaderMenuItem name='Donate' link='/donate' />
             </ul>
         </div>
     );

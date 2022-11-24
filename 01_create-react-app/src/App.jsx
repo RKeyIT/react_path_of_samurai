@@ -8,7 +8,14 @@ import Profile from "./components/Pages/Profile/Profile";
 import Dialogues from "./components/Pages/Dialogues/Dialogues";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
-const App = () => {
+const App = (props) => {
+
+    // Object props receives
+    // 1. ContactsData
+    // 2. MessagesData
+    // 3. PostData
+    //
+
     return (
         <BrowserRouter>
             <div className='wrapper-app'>
@@ -16,8 +23,16 @@ const App = () => {
                 <Navbar />
                 <main className="main">
                     <Routes>
-                        <Route path="/profile/*" element={<Profile/>}/>
-                        <Route path="/dialogues/*" element={<Dialogues/>}/>
+                        <Route path="/profile/*" element={<Profile PostData={props.PostData}/>}/>
+                        <Route path="/dialogues/*" element={<Dialogues ContactsData={props.ContactsData}
+                                                                       MessagesData={props.MessagesData}/>}/>
+                        <Route path="/community/*"></Route> element={}
+                        <Route path="/settings/*"></Route> element={}
+                        <Route path="/learnings/*"></Route> element={}
+                        <Route path="/teaching/*"></Route> element={}
+                        <Route path="/content/*"></Route> element={}
+                        <Route path="/donate/*"></Route> element={}
+                        <Route path="//*"></Route> element={}
                     </Routes>
                 </main>
             </div>
