@@ -1,6 +1,7 @@
 .Navbar {
     background-color: rgba(51, 17, 17, 0.75);
     grid-area: navbar;
+    overflow: auto;
 }
 
 .list {
@@ -9,4 +10,14 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+}
+
+.friends {
+    margin: 15px;
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
 }

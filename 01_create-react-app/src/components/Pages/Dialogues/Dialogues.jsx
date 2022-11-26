@@ -4,6 +4,8 @@ import Contact from "./Contact/Contact";
 import Search from "../../Action/Search/Search";
 import ChatInfo from "./ChatInfo/ChatInfo";
 import Messages from "./Messages/Messages";
+import Textarea from "../../Action/Textarea/Textarea";
+import Button from "../../Action/Button/Button";
 
 const Dialogues = (props) => {
     // Диалоги получает на вход:
@@ -12,8 +14,15 @@ const Dialogues = (props) => {
 
     // Теперь эта дата поступает из index.js - ContactsData, MessagesData
     const contacts =
-        props.ContactsData.map(el => <Contact id={el.id} username={el.username}/>)
+        props.state.ContactsData.map(el => <Contact id={el.id} username={el.username}/>)
 
+    const reactTextAreaLink = React.createRef()
+
+    // callback for button "send message'
+    const sendMessage = () => {
+        let text = reactTextAreaLink.current.value
+        return alert(text)
+    }
 
     return (
         <div className={styles.Dialogues}>
@@ -24,7 +33,10 @@ const Dialogues = (props) => {
             <div className={styles.messages}>
                 <ChatInfo user_name="user_name" last_online="last_online"/>
                 <Search name="message_searching" id="message_searching"/>
-                <Messages id={props.id} MessagesData={props.MessagesData}/>
+                <Messages id={props.id} MessagesData={props.state.MessagesData}/>
+                {/*<Textarea ref={reactTextAreaLink} />*/}
+                <textarea ref={reactTextAreaLink}></textarea>
+                <Button callback={sendMessage} text='Отправить сообщение'/>
             </div>
         </div>
     )

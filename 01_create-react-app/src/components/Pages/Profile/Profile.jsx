@@ -9,7 +9,6 @@ const Profile = (props) => {
     // 1. айди пользователя
     // 2. посты на стене
     let id = props.id
-
     // Теперь эта дата поступает из index.js
     // const postData = [
     //     {id: 0, userid: 0, username: 'PATIENT_ZERO', message: 'What IS your name?!', likes: 0, comments: 1},
@@ -18,10 +17,10 @@ const Profile = (props) => {
     // ];
 
     return (
-        <div className={styles.Content}>
+        <div className={styles.Profile}>
             <Statusbar id={id} />
             <UserPage id={id} />
-            <UserWall id={id} PostData={props.PostData} />
+            <UserWall id={id} PostData={props.state.PostData} actions={props.actions} />
         </div>
     );
 };

@@ -7,10 +7,12 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Pages/Profile/Profile";
 import Dialogues from "./components/Pages/Dialogues/Dialogues";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Footer from "./components/Footer/Footer";
 
 const App = (props) => {
 
     // Object props receives
+    // 0. state
     // 1. ContactsData
     // 2. MessagesData
     // 3. PostData
@@ -20,12 +22,11 @@ const App = (props) => {
         <BrowserRouter>
             <div className='wrapper-app'>
                 <Header />
-                <Navbar />
+                <Navbar state={props.state.navbarData}/>
                 <main className="main">
                     <Routes>
-                        <Route path="/profile/*" element={<Profile PostData={props.PostData}/>}/>
-                        <Route path="/dialogues/*" element={<Dialogues ContactsData={props.ContactsData}
-                                                                       MessagesData={props.MessagesData}/>}/>
+                        <Route path="/profile/*" element={<Profile state={props.state.profilePage} actions={props.actions}/>}/>
+                        <Route path="/dialogues/*" element={<Dialogues state={props.state.dialoguesPage}/>}/>
                         <Route path="/community/*"></Route> element={}
                         <Route path="/settings/*"></Route> element={}
                         <Route path="/learnings/*"></Route> element={}
@@ -35,6 +36,7 @@ const App = (props) => {
                         <Route path="//*"></Route> element={}
                     </Routes>
                 </main>
+                <Footer />
             </div>
         </BrowserRouter>
     );

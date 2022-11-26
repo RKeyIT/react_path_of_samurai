@@ -1,8 +1,11 @@
 import React from 'react';
-import './Button.css';
+import styles from './Button.module.css';
 
-const Button = (text, action) => {
-    return <button className='button'>text-button</button>;
+const Button = (props) => {
+    // Button receives from props:
+    // 1. callback function - action
+    // 2. text on button
+    return <button onClick={props.callback} className={styles.button}>{props.text}</button>;
 };
 
 export default Button;

@@ -4,23 +4,21 @@
   box-sizing: border-box;
 }
 
-body {
-  /*БЕЗ СКРОЛЛА СТРАНИЦЫ, ГДЕ ЕГО НЕТ, БУДУТ СЪЕЗЖАТЬ И НАОБОРОТ*/
-  overflow-y: scroll;
-  min-height: 100vh;
-}
-
 .wrapper-app {
   display: grid;
-  grid-template-areas: 
+  height: 100vh;
+  /*height - установил максимальную высоту всего содержимого приложения*/
+  grid-template-areas:
   "header header"
   "navbar main"
-  "navbar main";
+  "footer footer";
   grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr 8fr 1fr;
 }
 
 .main {
   grid-area: main;
+  overflow: auto;
 }
 
 .content {

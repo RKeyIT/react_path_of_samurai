@@ -6,13 +6,19 @@ const UserWall = (props) => {
     const posts =
         props.PostData.map( el => <UserPost name={el.username} message={el.message} likes={el.likes} comments={el.comments} />)
 
+    const createPost = () => {
+        let text = newPostArea.current.value
+        props.actions.sendPublication(text)
+    }
+
+    const newPostArea = React.createRef()
 
     return (
         <div className={styles.posts}>
             my posts
             <div className={styles.newPost}>
-                <textarea name='' id='' cols='60' rows='5'></textarea>
-                <button>new post</button>
+                <textarea ref={ newPostArea } name='' id='' cols='60' rows='5'></textarea>
+                <button onClick={ createPost }>new post</button>
             </div>
             <div className={styles.posted}>
                 {posts}

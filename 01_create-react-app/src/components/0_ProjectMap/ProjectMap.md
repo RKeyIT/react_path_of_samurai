@@ -1,5 +1,13 @@
 _**Project Colors**_
 
+
+**New colors**
+1. `#0f0f0f` - usually bg
+2. `#35cd4d` - usually bg
+2. `#226e2e` - usually bg 
+3. `#eeeeee` - usually text
+
+ *(Old colors)*
 1. #11592e
 2. #591111
 3. #401160
