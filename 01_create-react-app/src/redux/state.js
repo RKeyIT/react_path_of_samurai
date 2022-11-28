@@ -1,3 +1,5 @@
+import renderApp from "../render";
+
 const state = {
     profilePage: {
         PostData: [
@@ -38,24 +40,34 @@ const state = {
     },
 
     actions: {
-        sendPublication: (text) => {
+        // 1. actions with publications
+        sendPublication: () => {
             let dataArr = state.profilePage.PostData
 
             dataArr.push({
                 id: dataArr.length,
                 userid: 999,
                 username: 'METHOD_TEST',
-                message: text,
+                message: state.actions.textArea.text,
                 likes: 0,
                 comments: 0,
             })
-
-            console.log(dataArr)
+            state.actions.textArea.text = ''
+            renderApp()
         },
         // deletePublication: (props) => { },
         // likePublication: (props) => { },
         // commentPublication: (props) => { },
         // reportPublication: (props) => { },
+
+        // 2. textArea actions
+        textArea: {
+            text: 'Enter something...',
+            onChange: (text) => {
+                state.actions.textArea.text = text;
+                renderApp();
+            },
+        }
     }
 
 }
