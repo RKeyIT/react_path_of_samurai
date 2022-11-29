@@ -4,7 +4,6 @@ import Contact from "./Contact/Contact";
 import Search from "../../Action/Search/Search";
 import ChatInfo from "./ChatInfo/ChatInfo";
 import Messages from "./Messages/Messages";
-import Textarea from "../../Action/Textarea/Textarea";
 import Button from "../../Action/Button/Button";
 
 const Dialogues = (props) => {
@@ -20,8 +19,12 @@ const Dialogues = (props) => {
 
     // callback for button "send message'
     const sendMessage = () => {
-        let text = reactTextAreaLink.current.value
-        return alert(text)
+        let type = 'message';
+        props.actions.sendPublication(type);
+    }
+
+    const textAreaUpdate = () => {
+        props.actions.textArea.onChange(reactTextAreaLink.current.value)
     }
 
     return (
@@ -34,8 +37,16 @@ const Dialogues = (props) => {
                 <ChatInfo user_name="user_name" last_online="last_online"/>
                 <Search name="message_searching" id="message_searching"/>
                 <Messages id={props.id} MessagesData={props.state.MessagesData}/>
-                {/*<Textarea ref={reactTextAreaLink} />*/}
-                <textarea ref={reactTextAreaLink}></textarea>
+                {/*<Textarea */}
+                {/*    ref={reactTextAreaLink}*/}
+                {/*    value={props.actions.textArea.text}*/}
+                {/*    onChange={textAreaUpdate}*/}
+                {/*/>*/}
+                <textarea id='' name=''
+                    ref={reactTextAreaLink}
+                    value={props.actions.textArea.text}
+                    onChange={textAreaUpdate}
+                />
                 <Button callback={sendMessage} text='Отправить сообщение'/>
             </div>
         </div>

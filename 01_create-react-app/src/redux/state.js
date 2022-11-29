@@ -41,17 +41,33 @@ const state = {
 
     actions: {
         // 1. actions with publications
-        sendPublication: () => {
-            let dataArr = state.profilePage.PostData
+        sendPublication: (type) => {
+            // types for entering objects:
+            // 1. post
+            // 2. message
 
-            dataArr.push({
-                id: dataArr.length,
-                userid: 999,
-                username: 'METHOD_TEST',
-                message: state.actions.textArea.text,
-                likes: 0,
-                comments: 0,
-            })
+            if (type === 'post') {
+                let dataArr = state.profilePage.PostData
+                dataArr.push({
+                    type: type,
+                    id: dataArr.length,
+                    userid: 999,
+                    username: 'METHOD_TEST',
+                    message: state.actions.textArea.text,
+                    likes: 0,
+                    comments: 0,
+                })
+            }
+            if (type === 'message') {
+                let dataArr = state.dialoguesPage.MessagesData
+                dataArr.push({
+                    type: type,
+                    id: dataArr.length,
+                    userid: 999,
+                    username: 'METHOD_TEST',
+                    message: state.actions.textArea.text,
+                })
+            }
             state.actions.textArea.text = ''
             renderApp()
         },

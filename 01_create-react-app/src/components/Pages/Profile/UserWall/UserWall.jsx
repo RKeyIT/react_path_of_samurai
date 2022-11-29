@@ -10,12 +10,12 @@ const UserWall = (props) => {
                                            likes={el.likes} comments={el.comments}/>)
 
     const createPost = () => {
-        props.actions.sendPublication()
+        let type = 'post'
+        props.actions.sendPublication(type)
     }
 
-    const changeTextArea = () => {
-        let text = newPostArea.current.value
-        props.actions.textArea.onChange(text)
+    const textAreaUpdate = () => {
+        props.actions.textArea.onChange(newPostArea.current.value)
     }
 
     return (
@@ -25,7 +25,7 @@ const UserWall = (props) => {
                 <textarea name='' id='' cols='60' rows='5'
                           ref={newPostArea}
                           value={props.actions.textArea.text}
-                          onChange={changeTextArea}/>
+                          onChange={textAreaUpdate}/>
                 <button onClick={createPost}>new post</button>
             </div>
             <div className={styles.posted}>
