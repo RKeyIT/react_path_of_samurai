@@ -1,4 +1,4 @@
-import renderApp from "../render";
+let renderApp = () => {}
 
 const state = {
     profilePage: {
@@ -87,5 +87,7 @@ const state = {
     }
 
 }
+
+window.state = state;
 
 export default state;

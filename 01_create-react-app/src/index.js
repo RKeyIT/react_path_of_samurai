@@ -1,6 +1,18 @@
 import './index.css';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-import renderApp from "./render";
+import state from './redux/state'
+
+let root = ReactDOM.createRoot(document.getElementById('root'));
+let renderApp = () => {
+    root.render(
+        <React.StrictMode>
+            <App state={state} actions={state.actions}/>
+        </React.StrictMode>
+    );
+}
 
 renderApp()
 

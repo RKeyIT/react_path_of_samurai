@@ -19,8 +19,13 @@ const Dialogues = (props) => {
 
     // callback for button "send message'
     const sendMessage = () => {
-        let type = 'message';
-        props.actions.sendPublication(type);
+        let isFieldNull = /\s*/g;
+        if (reactTextAreaLink.current.value === isFieldNull) {
+            return reactTextAreaLink.current.value = ''
+        } else {
+            let type = 'message';
+            props.actions.sendPublication(type);
+        }
     }
 
     const textAreaUpdate = () => {
