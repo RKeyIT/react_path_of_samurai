@@ -1,4 +1,6 @@
-let renderApp = () => {}
+let renderApp = () => {
+    // here will be observer
+}
 
 const state = {
     profilePage: {
@@ -69,7 +71,7 @@ const state = {
                 })
             }
             state.actions.textArea.text = ''
-            renderApp()
+            renderApp(state)
         },
         // deletePublication: (props) => { },
         // likePublication: (props) => { },
@@ -81,11 +83,14 @@ const state = {
             text: 'Enter something...',
             onChange: (text) => {
                 state.actions.textArea.text = text;
-                renderApp();
+                renderApp(state);
             },
-        }
+        },
+    },
+    // Observer pattern
+    subscribe: observer => {
+        renderApp = observer;
     }
-
 }
 
 window.state = state;

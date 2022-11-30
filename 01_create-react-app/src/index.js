@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import state from './redux/state'
 
 let root = ReactDOM.createRoot(document.getElementById('root'));
-let renderApp = () => {
+let renderApp = (state) => {
     root.render(
         <React.StrictMode>
             <App state={state} actions={state.actions}/>
@@ -14,7 +14,11 @@ let renderApp = () => {
     );
 }
 
-renderApp()
+// Исследовать тему подробнее:
+// данные - без следующего рендера - не рисуется апп.
+state.subscribe(renderApp)
+// отрисовка - без сабскрайб не работают отправки текстарии
+renderApp(state)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
