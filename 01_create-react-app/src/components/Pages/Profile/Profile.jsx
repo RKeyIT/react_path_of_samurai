@@ -20,7 +20,13 @@ const Profile = (props) => {
         <div className={styles.Profile}>
             <Statusbar id={id} />
             <UserPage id={id} />
-            <UserWall id={id} PostData={props.state.PostData} actions={props.actions} />
+            <UserWall
+                id={id}
+                textArea={props.textArea}
+                PostData={props.state.PostData}
+                sendPublication={props.sendPublication}
+                subscribe={props.subscribe}
+            />
         </div>
     );
 };

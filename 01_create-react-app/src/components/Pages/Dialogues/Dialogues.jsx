@@ -24,12 +24,12 @@ const Dialogues = (props) => {
             return reactTextAreaLink.current.value = ''
         } else {
             let type = 'message';
-            props.actions.sendPublication(type);
+            props.sendPublication(type);
         }
     }
 
     const textAreaUpdate = () => {
-        props.actions.textArea.onChange(reactTextAreaLink.current.value)
+        props.textArea.onChange(reactTextAreaLink.current.value)
     }
 
     return (
@@ -49,7 +49,7 @@ const Dialogues = (props) => {
                 {/*/>*/}
                 <textarea id='' name=''
                     ref={reactTextAreaLink}
-                    value={props.actions.textArea.text}
+                    value={props.textArea.text}
                     onChange={textAreaUpdate}
                 />
                 <Button callback={sendMessage} text='Отправить сообщение'/>

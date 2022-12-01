@@ -6,6 +6,7 @@ import Profile from "./components/Pages/Profile/Profile";
 import Dialogues from "./components/Pages/Dialogues/Dialogues";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Footer from "./components/Footer/Footer";
+import store from "./redux/state";
 
 const App = (props) => {
 
@@ -24,9 +25,17 @@ const App = (props) => {
                 <main className="main">
                     <Routes>
                         <Route path="/profile/*" element={<Profile
-                            state={props.state.profilePage} actions={props.actions}/>}/>
+                            state={props.state.profilePage}
+                            sendPublication={props.sendPublication}
+                            subscribe={props.subscribe}
+                            textArea={props.textArea}
+                        />}/>
                         <Route path="/dialogues/*" element={<Dialogues
-                            state={props.state.dialoguesPage} actions={props.actions}/>}/>
+                            state={props.state.dialoguesPage}
+                            sendPublication={props.sendPublication}
+                            subscribe={props.subscribe}
+                            textArea={props.textArea}
+                        />}/>
                         <Route path="/community/*"></Route> element={}
                         <Route path="/settings/*"></Route> element={}
                         <Route path="/learnings/*"></Route> element={}

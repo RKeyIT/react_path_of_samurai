@@ -4,7 +4,14 @@ const store = {
             PostData: [
                 {id: 0, userid: 0, username: 'PATIENT_ZERO', message: 'What IS your name?!', likes: 0, comments: 1},
                 {id: 1, userid: 0, username: 'Alex Beachman', message: 'What ARE you mean?!', likes: 6, comments: 2},
-                {id: 2, userid: 0, username: 'Bartosz Czarny', message: 'Where ARE you talking about?!', likes: 520, comments: 34},
+                {
+                    id: 2,
+                    userid: 0,
+                    username: 'Bartosz Czarny',
+                    message: 'Where ARE you talking about?!',
+                    likes: 520,
+                    comments: 34
+                },
             ],
         },
         dialoguesPage: {
@@ -16,11 +23,13 @@ const store = {
                 {id: '4', username: 'Kardan Wislouhij'},
             ],
             MessagesData: [
-                {id: '0', ownerId: 123423, message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.\n' +
+                {
+                    id: '0', ownerId: 123423, message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.\n' +
                         '                        Corporis distinctio perferendis accusamus cupiditate\n' +
                         '                        necessitatibus velit! Fugiat officia explicabo, quia quo\n' +
                         '                        magnam non saepe! Dicta facilis debitis quae, voluptate\n' +
-                        '                        aliquam veritatis?'},
+                        '                        aliquam veritatis?'
+                },
                 {id: '1', ownerId: 123423, message: 'NOT_User_NAME'},
                 {id: '2', ownerId: 123423, message: 'KEK!!=D'},
                 {id: '3', ownerId: 123423, message: 'HERE WAS MESSAGE'},
@@ -44,52 +53,50 @@ const store = {
     _callSubscriber() {
         // here will be observer
     },
-    actions: {
-        // 1. actions with publications
-        sendPublication(type) {
-            // types for entering objects:
-            // 1. post
-            // 2. message
+    // 1. actions with publications
+    sendPublication(type) {
+        // types for entering objects:
+        // 1. post
+        // 2. message
 
-            if (type === 'post') {
-                let dataArr = store._state.profilePage.PostData
-                dataArr.push({
-                    type: type,
-                    id: dataArr.length,
-                    userid: 999,
-                    username: 'METHOD_TEST',
-                    message: this.textArea.text,
-                    likes: 0,
-                    comments: 0,
-                })
-            }
-            if (type === 'message') {
-                let dataArr = store._state.dialoguesPage.MessagesData
-                dataArr.push({
-                    type: type,
-                    id: dataArr.length,
-                    userid: 999,
-                    username: 'METHOD_TEST',
-                    message: this.textArea.text,
-                })
-            }
+        if (type === 'post') {
+            let dataArr = this._state.profilePage.PostData
+            dataArr.push({
+                type: type,
+                id: dataArr.length,
+                userid: 999,
+                username: 'METHOD_TEST',
+                message: this.textArea.text,
+                likes: 0,
+                comments: 0,
+            })
+        }
+        if (type === 'message') {
+            let dataArr = this._state.dialoguesPage.MessagesData
+            dataArr.push({
+                type: type,
+                id: dataArr.length,
+                userid: 999,
+                username: 'METHOD_TEST',
+                message: this.textArea.text,
+            })
+        }
+        // console.log(this)
+        this.textArea.text = ''
+        this._callSubscriber(this.getState())
+    },
+    // deletePublication: (props) => { },
+    // likePublication: (props) => { },
+    // commentPublication: (props) => { },
+    // reportPublication: (props) => { },
+
+    // 2. textArea actions
+    textArea: {
+        text: 'Enter something...',
+        onChange(text) {
             // console.log(this)
-            store.actions.textArea.text = ''
-            store._callSubscriber(store.getState())
-        },
-        // deletePublication: (props) => { },
-        // likePublication: (props) => { },
-        // commentPublication: (props) => { },
-        // reportPublication: (props) => { },
-
-        // 2. textArea actions
-        textArea: {
-            text: 'Enter something...',
-            onChange(text) {
-                // console.log(this)
-                store.actions.textArea.text = text;
-                store._callSubscriber(store.getState());
-            },
+            this.text = text;
+            store._callSubscriber(store.getState());
         },
     },
     // Observer pattern

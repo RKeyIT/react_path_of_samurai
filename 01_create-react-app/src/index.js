@@ -9,7 +9,11 @@ let root = ReactDOM.createRoot(document.getElementById('root'));
 let renderApp = (state) => {
     root.render(
         <React.StrictMode>
-            <App state={store.getState()} actions={store.actions}/>
+            <App state={store.getState()}
+                 sendPublication={store.sendPublication.bind(store)}
+                 subscribe={store.subscribe}
+                 textArea={store.textArea}
+            />
         </React.StrictMode>
     );
 }
