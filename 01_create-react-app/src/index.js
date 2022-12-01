@@ -15,9 +15,9 @@ let renderApp = (state) => {
 }
 
 // Исследовать тему подробнее:
-// данные - без следующего рендера - не рисуется апп.
+// Данные. Без следующего рендера - не рисуется апп.
 state.subscribe(renderApp)
-// отрисовка - без сабскрайб не работают отправки текстарии
+// Отрисовка - без сабскрайб не работают отправки текстарии
 renderApp(state)
 
 // If you want to start measuring performance in your app, pass a function
