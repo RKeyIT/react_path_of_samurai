@@ -3,22 +3,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from './redux/state'
+import store from './redux/state'
 
 let root = ReactDOM.createRoot(document.getElementById('root'));
 let renderApp = (state) => {
     root.render(
         <React.StrictMode>
-            <App state={state} actions={state.actions}/>
+            <App state={store.getState()} actions={store.actions}/>
         </React.StrictMode>
     );
 }
 
 // Исследовать тему подробнее:
 // Данные. Без следующего рендера - не рисуется апп.
-state.subscribe(renderApp)
+store.subscribe(renderApp)
 // Отрисовка - без сабскрайб не работают отправки текстарии
-renderApp(state)
+renderApp(store.getState())
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
