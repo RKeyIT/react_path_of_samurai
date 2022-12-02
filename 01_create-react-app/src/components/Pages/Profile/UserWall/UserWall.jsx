@@ -10,8 +10,8 @@ const UserWall = (props) => {
                                            likes={el.likes} comments={el.comments}/>)
 
     const createPost = () => {
-        let type = 'post'
-        props.sendPublication(type)
+        let type = 'POST_PUBLICATION'
+        props.dispatch(type)
     }
 
     const textAreaUpdate = () => {

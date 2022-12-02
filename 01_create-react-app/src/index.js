@@ -10,7 +10,7 @@ let renderApp = (state) => {
     root.render(
         <React.StrictMode>
             <App state={store.getState()}
-                 sendPublication={store.sendPublication.bind(store)}
+                 dispatch={store.dispatch.bind(store)}
                  subscribe={store.subscribe}
                  textArea={store.textArea}
             />

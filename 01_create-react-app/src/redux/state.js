@@ -47,13 +47,44 @@ const store = {
             ]
         },
     },
-    getState() {
-        return this._state
-    },
     _callSubscriber() {
         // here will be observer
     },
-    // 1. actions with publications
+    getState() {
+        return this._state
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+
+    dispatch(action) {
+        // post publication
+        if (action.type === 'POST_PUBLICATION') {
+            let dataArr = this._state.profilePage.PostData
+            dataArr.push({
+                type: action.type,
+                id: dataArr.length,
+                userid: 999,
+                username: 'METHOD_TEST',
+                message: this.textArea.text,
+                likes: 0,
+                comments: 0,
+            })
+        }
+        // message sending
+        if (action.type === 'MESSAGE_SENDING') {
+            let dataArr = this._state.dialoguesPage.MessagesData
+            dataArr.push({
+                type: action.type,
+                id: dataArr.length,
+                userid: 999,
+                username: 'METHOD_TEST',
+                message: this.textArea.text,
+            })
+        }
+        this.textArea.text = ''
+        this._callSubscriber(this.getState())
+    },
     sendPublication(type) {
         // types for entering objects:
         // 1. post
@@ -89,8 +120,6 @@ const store = {
     // likePublication: (props) => { },
     // commentPublication: (props) => { },
     // reportPublication: (props) => { },
-
-    // 2. textArea actions
     textArea: {
         text: 'Enter something...',
         onChange(text) {
@@ -99,10 +128,6 @@ const store = {
             store._callSubscriber(store.getState());
         },
     },
-    // Observer pattern
-    subscribe(observer) {
-        this._callSubscriber = observer;
-    }
 }
 
 window.store = store;

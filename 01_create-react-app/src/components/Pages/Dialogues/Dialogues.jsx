@@ -23,7 +23,7 @@ const Dialogues = (props) => {
         if (reactTextAreaLink.current.value === isFieldNull) {
             return reactTextAreaLink.current.value = ''
         } else {
-            let type = 'message';
+            let type = 'MESSAGE_SENDING';
             props.sendPublication(type);
         }
     }
