@@ -23,14 +23,33 @@ const Dialogues = (props) => {
         if (reactTextAreaLink.current.value === isFieldNull) {
             return reactTextAreaLink.current.value = ''
         } else {
-            let type = 'MESSAGE_SENDING';
-            props.sendPublication(type);
+            let action = {type: 'MESSAGE_SENDING'};
+            props.dispatch(action);
         }
     }
 
-    const textAreaUpdate = () => {
-        props.textArea.onChange(reactTextAreaLink.current.value)
+    const textAreaValue = () => {
+        let action = {type: 'textAreaText'}
+        return props.dispatch(action)
     }
+    const textAreaUpdate = () => {
+        let action = {
+            type: 'textAreaUpdate',
+            text: reactTextAreaLink.current.value,
+        }
+        return props.dispatch(action)
+    }
+
+
+    const clearField = () => {
+        return reactTextAreaLink.current.value = '';
+    }
+    const fillField = () => {
+        if(reactTextAreaLink.current.value === ''){
+            return reactTextAreaLink.current.value = 'Enter something...';
+        }
+    }
+
 
     return (
         <div className={styles.Dialogues}>
@@ -47,10 +66,14 @@ const Dialogues = (props) => {
                 {/*    value={props.actions.textArea.text}*/}
                 {/*    onChange={textAreaUpdate}*/}
                 {/*/>*/}
-                <textarea id='' name=''
+                <textarea
+                    id='' name=''
                     ref={reactTextAreaLink}
-                    value={props.textArea.text}
+                    value={textAreaValue()}
                     onChange={textAreaUpdate}
+                    // onFocus={clearField}
+                    // onClick={clearField}
+                    // onBlur={fillField}
                 />
                 <Button callback={sendMessage} text='Отправить сообщение'/>
             </div>

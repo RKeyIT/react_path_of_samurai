@@ -46,6 +46,12 @@ const store = {
                 {id: 236, name: 'TEST_USER_3'},
             ]
         },
+        textAreaText: 'Enter something...',
+        textAreaOnChange(text) {
+            // console.log(this)
+            this.textAreaText = text;
+            store._callSubscriber(store.getState());
+        },
     },
     _callSubscriber() {
         // here will be observer
@@ -58,20 +64,21 @@ const store = {
     },
 
     dispatch(action) {
-        // post publication
+        // 1. post publication
         if (action.type === 'POST_PUBLICATION') {
             let dataArr = this._state.profilePage.PostData
             dataArr.push({
                 type: action.type,
-                id: dataArr.length,
-                userid: 999,
-                username: 'METHOD_TEST',
-                message: this.textArea.text,
-                likes: 0,
-                comments: 0,
+                idPost: dataArr.length,
+                idUser: 'HERE_WILL_BE_USER_ID',
+                username: 'HERE_WILL_BE_USER_NAME',
+                message: this._state.textAreaText,
+                likes: 0, //default
+                comments: 0, //default
+                viewsCount: 0, //default
             })
         }
-        // message sending
+        // 2. message sending
         if (action.type === 'MESSAGE_SENDING') {
             let dataArr = this._state.dialoguesPage.MessagesData
             dataArr.push({
@@ -79,55 +86,24 @@ const store = {
                 id: dataArr.length,
                 userid: 999,
                 username: 'METHOD_TEST',
-                message: this.textArea.text,
+                message: this._state.textAreaText,
             })
         }
-        this.textArea.text = ''
-        this._callSubscriber(this.getState())
-    },
-    sendPublication(type) {
-        // types for entering objects:
-        // 1. post
-        // 2. message
-
-        if (type === 'post') {
-            let dataArr = this._state.profilePage.PostData
-            dataArr.push({
-                type: type,
-                id: dataArr.length,
-                userid: 999,
-                username: 'METHOD_TEST',
-                message: this.textArea.text,
-                likes: 0,
-                comments: 0,
-            })
+        // textarea
+        if (action.type === 'textAreaText') {
+            return this._state.textAreaText
         }
-        if (type === 'message') {
-            let dataArr = this._state.dialoguesPage.MessagesData
-            dataArr.push({
-                type: type,
-                id: dataArr.length,
-                userid: 999,
-                username: 'METHOD_TEST',
-                message: this.textArea.text,
-            })
+        // textarea onChange = textAreaUpdate
+        if (action.type === 'textAreaUpdate') {
+            return this._state.textAreaOnChange(action.text)
         }
-        // console.log(this)
-        this.textArea.text = ''
+        this._state.textAreaText = ''
         this._callSubscriber(this.getState())
     },
     // deletePublication: (props) => { },
     // likePublication: (props) => { },
     // commentPublication: (props) => { },
     // reportPublication: (props) => { },
-    textArea: {
-        text: 'Enter something...',
-        onChange(text) {
-            // console.log(this)
-            this.text = text;
-            store._callSubscriber(store.getState());
-        },
-    },
 }
 
 window.store = store;

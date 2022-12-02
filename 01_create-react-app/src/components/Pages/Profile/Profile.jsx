@@ -24,7 +24,6 @@ const Profile = (props) => {
                 id={id}
                 textArea={props.textArea}
                 PostData={props.state.PostData}
-                subscribe={props.subscribe}
                 dispatch={props.dispatch}
             />
         </div>

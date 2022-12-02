@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/state'
+import store from './redux/store'
 
 let root = ReactDOM.createRoot(document.getElementById('root'));
 let renderApp = (state) => {
@@ -11,8 +11,6 @@ let renderApp = (state) => {
         <React.StrictMode>
             <App state={store.getState()}
                  dispatch={store.dispatch.bind(store)}
-                 subscribe={store.subscribe}
-                 textArea={store.textArea}
             />
         </React.StrictMode>
     );

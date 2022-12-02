@@ -25,13 +25,11 @@ const App = (props) => {
                     <Routes>
                         <Route path="/profile/*" element={<Profile
                             state={props.state.profilePage}
-                            subscribe={props.subscribe}
                             textArea={props.textArea}
                             dispatch={props.dispatch}
                         />}/>
                         <Route path="/dialogues/*" element={<Dialogues
                             state={props.state.dialoguesPage}
-                            subscribe={props.subscribe}
                             textArea={props.textArea}
                             dispatch={props.dispatch}
                         />}/>
