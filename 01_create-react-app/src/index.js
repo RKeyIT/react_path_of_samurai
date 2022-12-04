@@ -9,7 +9,7 @@ let root = ReactDOM.createRoot(document.getElementById('root'));
 let renderApp = (state) => {
     root.render(
         <React.StrictMode>
-            <App state={store.getState()}
+            <App state={state}
                  dispatch={store.dispatch.bind(store)}
             />
         </React.StrictMode>

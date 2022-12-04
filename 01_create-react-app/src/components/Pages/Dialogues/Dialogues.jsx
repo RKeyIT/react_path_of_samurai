@@ -5,6 +5,7 @@ import Search from "../../Action/Search/Search";
 import ChatInfo from "./ChatInfo/ChatInfo";
 import Messages from "./Messages/Messages";
 import Button from "../../Action/Button/Button";
+import {sendMessageActionCreator, textAreaUpdateActionCreator, textAreaValueActionCreator} from "../../../redux/store";
 
 const Dialogues = (props) => {
     // Диалоги получает на вход:
@@ -23,32 +24,22 @@ const Dialogues = (props) => {
         if (reactTextAreaLink.current.value === isFieldNull) {
             return reactTextAreaLink.current.value = ''
         } else {
-            let action = {type: 'MESSAGE_SENDING'};
-            props.dispatch(action);
+            props.dispatch(sendMessageActionCreator());
         }
     }
 
-    const textAreaValue = () => {
-        let action = {type: 'textAreaText'}
-        return props.dispatch(action)
-    }
-    const textAreaUpdate = () => {
-        let action = {
-            type: 'textAreaUpdate',
-            text: reactTextAreaLink.current.value,
-        }
-        return props.dispatch(action)
-    }
+    const textAreaValue = () => props.dispatch(textAreaValueActionCreator())
+    const textAreaUpdate = () => props.dispatch(textAreaUpdateActionCreator(reactTextAreaLink.current.value))
 
 
-    const clearField = () => {
-        return reactTextAreaLink.current.value = '';
-    }
-    const fillField = () => {
-        if(reactTextAreaLink.current.value === ''){
-            return reactTextAreaLink.current.value = 'Enter something...';
-        }
-    }
+    // const clearField = () => {
+    //     return reactTextAreaLink.current.value = '';
+    // }
+    // const fillField = () => {
+    //     if(reactTextAreaLink.current.value === ''){
+    //         return reactTextAreaLink.current.value = 'Enter something...';
+    //     }
+    // }
 
 
     return (
