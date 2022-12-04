@@ -8,14 +8,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 
 const App = (props) => {
-
-    // Object props receives
-    // 0. state
-    // 1. ContactsData
-    // 2. MessagesData
-    // 3. PostData
-    //
-
+    debugger
     return (
         <BrowserRouter>
             <div className='wrapper-app'>
@@ -25,12 +18,10 @@ const App = (props) => {
                     <Routes>
                         <Route path="/profile/*" element={<Profile
                             state={props.state.profilePage}
-                            textArea={props.textArea}
                             dispatch={props.dispatch}
                         />}/>
                         <Route path="/dialogues/*" element={<Dialogues
                             state={props.state.dialoguesPage}
-                            textArea={props.textArea}
                             dispatch={props.dispatch}
                         />}/>
                         <Route path="/community/*"></Route> element={}

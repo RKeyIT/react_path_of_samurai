@@ -16,13 +16,7 @@ let renderApp = (state) => {
     );
 }
 
-// Исследовать тему подробнее:
-// Данные. Без следующего рендера - не рисуется апп.
-store.subscribe(renderApp)
-// Отрисовка - без сабскрайб не работают отправки текстарии
 renderApp(store.getState())
+store.subscribe(renderApp)
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

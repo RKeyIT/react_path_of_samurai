@@ -5,16 +5,17 @@ import Search from "../../Action/Search/Search";
 import ChatInfo from "./ChatInfo/ChatInfo";
 import Messages from "./Messages/Messages";
 import Button from "../../Action/Button/Button";
-import {sendMessageActionCreator, textAreaUpdateActionCreator, textAreaValueActionCreator} from "../../../redux/store";
+import {
+    DIALOGUES_textAreaUpdateActionCreator, DIALOGUES_textAreaValueActionCreator,
+    sendMessageActionCreator,
+} from "../../../redux/store";
 
 const Dialogues = (props) => {
     // Диалоги получает на вход:
     // 1. Список контактов и мапит их в компоненты Contact сразу
     // 2. Списки сообщений и передаёт их в пропсах компоненту Messages
-
-    // Теперь эта дата поступает из index.js - ContactsData, MessagesData
     const contacts =
-        props.state.ContactsData.map(el => <Contact id={el.id} username={el.username}/>)
+        props.state.DATA_Contacts.map(el => <Contact id={el.id} username={el.username}/>)
 
     const reactTextAreaLink = React.createRef()
 
@@ -28,19 +29,8 @@ const Dialogues = (props) => {
         }
     }
 
-    const textAreaValue = () => props.dispatch(textAreaValueActionCreator())
-    const textAreaUpdate = () => props.dispatch(textAreaUpdateActionCreator(reactTextAreaLink.current.value))
-
-
-    // const clearField = () => {
-    //     return reactTextAreaLink.current.value = '';
-    // }
-    // const fillField = () => {
-    //     if(reactTextAreaLink.current.value === ''){
-    //         return reactTextAreaLink.current.value = 'Enter something...';
-    //     }
-    // }
-
+    const textAreaValue = () => props.dispatch(DIALOGUES_textAreaValueActionCreator())
+    const textAreaUpdate = () => props.dispatch(DIALOGUES_textAreaUpdateActionCreator(reactTextAreaLink.current.value))
 
     return (
         <div className={styles.Dialogues}>
@@ -51,7 +41,7 @@ const Dialogues = (props) => {
             <div className={styles.messages}>
                 <ChatInfo user_name="user_name" last_online="last_online"/>
                 <Search name="message_searching" id="message_searching"/>
-                <Messages id={props.id} MessagesData={props.state.MessagesData}/>
+                <Messages id={props.id} MessagesData={props.state.DATA_Messages}/>
                 {/*<Textarea */}
                 {/*    ref={reactTextAreaLink}*/}
                 {/*    value={props.actions.textArea.text}*/}
@@ -62,6 +52,7 @@ const Dialogues = (props) => {
                     ref={reactTextAreaLink}
                     value={textAreaValue()}
                     onChange={textAreaUpdate}
+                    placeholder={'Enter something...'}
                     // onFocus={clearField}
                     // onClick={clearField}
                     // onBlur={fillField}
