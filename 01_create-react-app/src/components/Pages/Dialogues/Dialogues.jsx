@@ -6,31 +6,19 @@ import ChatInfo from "./ChatInfo/ChatInfo";
 import Messages from "./Messages/Messages";
 import Button from "../../Action/Button/Button";
 import {
-    DIALOGUES_textAreaUpdateActionCreator, DIALOGUES_textAreaValueActionCreator,
+    DIALOGUES_textAreaUpdateActionCreator,
     sendMessageActionCreator,
-} from "../../../redux/store";
+} from "../../../redux/dialogues-reducer";
 
 const Dialogues = (props) => {
-    // Диалоги получает на вход:
-    // 1. Список контактов и мапит их в компоненты Contact сразу
-    // 2. Списки сообщений и передаёт их в пропсах компоненту Messages
     const contacts =
         props.state.DATA_Contacts.map(el => <Contact id={el.id} username={el.username}/>)
 
     const reactTextAreaLink = React.createRef()
 
-    // callback for button "send message'
-    const sendMessage = () => {
-        let isFieldNull = /\s*/g;
-        if (reactTextAreaLink.current.value === isFieldNull) {
-            return reactTextAreaLink.current.value = ''
-        } else {
-            props.dispatch(sendMessageActionCreator());
-        }
-    }
-
-    const textAreaValue = () => props.dispatch(DIALOGUES_textAreaValueActionCreator())
+    const sendMessage = () => props.dispatch(sendMessageActionCreator())
     const textAreaUpdate = () => props.dispatch(DIALOGUES_textAreaUpdateActionCreator(reactTextAreaLink.current.value))
+    const textAreaValue = () => props.state.textAreaText
 
     return (
         <div className={styles.Dialogues}>

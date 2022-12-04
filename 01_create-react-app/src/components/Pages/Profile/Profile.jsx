@@ -15,7 +15,7 @@ const Profile = (props) => {
             <UserPage id={id} />
             <UserWall
                 id={id}
-                DATA_Posts={props.state.DATA_Posts}
+                state={props.state}
                 dispatch={props.dispatch}
             />
         </div>

@@ -2,19 +2,6 @@ import profileReducer from "./profile-reducer";
 import dialoguesReducer from "./dialogues-reducer";
 import navbarReducer from "./navbar-reducer";
 
-export const createPostActionCreator = () => ({type: 'POST_PUBLICATION'})
-export const sendMessageActionCreator = () => ({type: 'MESSAGE_SENDING'})
-export const PROFILE_textAreaValueActionCreator = () => ({type: 'PROFILE_textAreaText'})
-export const PROFILE_textAreaUpdateActionCreator = (text) => ({
-    type: 'textAreaUpdate',
-    text: text,
-})
-export const DIALOGUES_textAreaValueActionCreator = () => ({type: 'DIALOGUES_textAreaText'})
-export const DIALOGUES_textAreaUpdateActionCreator = (text) => ({
-    type: 'textAreaUpdate',
-    text: text,
-})
-
 const store = {
     _state: {
         profilePage: {
