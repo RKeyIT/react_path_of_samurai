@@ -1,4 +1,24 @@
-const profileReducer = (state, action) => {
+const initialState = {
+    DATA_Posts: [
+        {id: 0, userid: 0, username: 'PATIENT_ZERO', message: 'What IS your name?!', likes: 0, comments: 1},
+        {id: 1, userid: 0, username: 'Alex Beachman', message: 'What ARE you mean?!', likes: 6, comments: 2},
+        {
+            id: 2,
+            userid: 0,
+            username: 'Bartosz Czarny',
+            message: 'WHAT ARE you talking about?!',
+            likes: 520,
+            comments: 34
+        },
+    ],
+    textAreaText: '',
+    textAreaOnChange(text) {
+        this.textAreaText = text;
+        // store._callSubscriber(store.getState());
+    },
+}
+
+const profileReducer = (state = initialState, action) => {
     const POST_PUBLICATION = 'POST_PUBLICATION'
     const PROFILE_textAreaUpdate = 'PROFILE_textAreaUpdate'
 
