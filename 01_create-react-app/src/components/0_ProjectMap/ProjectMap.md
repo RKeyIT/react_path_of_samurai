@@ -26,5 +26,5 @@ _**Project Map**_
        2. Content
           1. Statusbar
           2. UserPage
-          3. UserWall
+          3. UserWallUI
     3. Footer

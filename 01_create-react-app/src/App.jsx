@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Pages/Profile/Profile";
-import Dialogues from "./components/Pages/Dialogues/Dialogues";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Footer from "./components/Footer/Footer";
+import ProfileLogic from "./components/Pages/Profile/ProfileLogic";
+import DialoguesLogic from "./components/Pages/Dialogues/DialoguesLogic";
 
 const App = (props) => {
     return (
@@ -15,13 +15,11 @@ const App = (props) => {
                 <Navbar state={props.state.navbarData}/>
                 <main className="main">
                     <Routes>
-                        <Route path="/profile/*" element={<Profile
-                            state={props.state.profilePage}
-                            dispatch={props.dispatch}
+                        <Route path="/profile/*" element={<ProfileLogic
+                            store={props.store}
                         />}/>
-                        <Route path="/dialogues/*" element={<Dialogues
-                            state={props.state.dialoguesPage}
-                            dispatch={props.dispatch}
+                        <Route path="/dialogues/*" element={<DialoguesLogic
+                            store={props.store}
                         />}/>
                         <Route path="/community/*"></Route> element={}
                         <Route path="/settings/*"></Route> element={}
