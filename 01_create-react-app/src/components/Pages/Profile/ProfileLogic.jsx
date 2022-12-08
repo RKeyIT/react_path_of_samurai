@@ -4,7 +4,7 @@ import ProfileUI from "./ProfileUI";
 const ProfileLogic = (props) => {
     return (
         <div>
-            <ProfileUI store={props.store}/>
+            <ProfileUI/>
         </div>
     );
 };

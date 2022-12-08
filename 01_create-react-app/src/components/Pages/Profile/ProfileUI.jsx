@@ -10,7 +10,7 @@ const ProfileUI = (props) => {
         <div className={styles.Profile}>
             <Statusbar />
             <UserPage />
-            <UserWallLogic store={props.store} />
+            <UserWallLogic  />
         </div>
     );
 };

@@ -3,17 +3,20 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import store from './redux/store'
 import store from './redux/redux-store'
+import StoreContext from "./StoreContext";
 
 let root = ReactDOM.createRoot(document.getElementById('root'));
 let renderApp = (state) => {
     root.render(
         <React.StrictMode>
-            <App state={state}
-                 dispatch={store.dispatch.bind(store)}
-                 store={store}
-            />
+            <StoreContext.Provider value={store}>
+                {/*<App state={state}*/}
+                {/*     dispatch={store.dispatch.bind(store)}*/}
+                {/*     store={store}*/}
+                {/*/>*/}
+                <App />
+            </StoreContext.Provider>
         </React.StrictMode>
     );
 }
