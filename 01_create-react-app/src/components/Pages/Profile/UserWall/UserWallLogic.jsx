@@ -4,34 +4,26 @@ import {
 } from "../../../../redux/profile-reducer";
 import UserWallUI from "./UserWallUI";
 import UserPost from "../UserPost/UserPost";
-import StoreContext from "../../../../StoreContext";
+import {connect} from "react-redux";
 
-const UserWallLogic = (props) => {
+let mapStateToProps = (state) => {
+    return {
+        state: state.profilePage,
+        posts: state.profilePage.DATA_Posts.map(el => <UserPost name={el.username} message={el.message}
+                                                    likes={el.likes} comments={el.comments}/>)
+    }
+}
+let mapDispatchToProps = (dispatch) => {
+    return {
+        createPost: () => {
+            dispatch(createPostActionCreator())
+        },
+        textAreaUpdate: (text) => {
+            dispatch(PROFILE_textAreaUpdateActionCreator(text))
+        },
+    }
+}
 
-    return (
-        <StoreContext.Consumer>
-            {
-            (store) => {
-                const createPost = () => {
-                    store.dispatch(createPostActionCreator())
-                }
-                const textAreaUpdate = (text) => {
-                    store.dispatch(PROFILE_textAreaUpdateActionCreator(text))
-                }
-                const state = store.getState().profilePage
-
-                const posts = state.DATA_Posts.map(el => <UserPost name={el.username} message={el.message}
-                                                                   likes={el.likes} comments={el.comments}/>)
-                    return < UserWallUI
-                createPost = {createPost}
-                textAreaUpdate = {textAreaUpdate}
-                state = {state}
-                posts = {posts}
-                />
-            }
-        }
-        </StoreContext.Consumer>
-    );
-};
+const UserWallLogic = connect(mapStateToProps, mapDispatchToProps)(UserWallUI);
 
 export default UserWallLogic;

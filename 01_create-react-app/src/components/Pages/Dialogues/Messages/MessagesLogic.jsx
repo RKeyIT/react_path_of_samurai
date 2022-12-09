@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./Messages.module.css"
 import Inbox from "../Inbox/Inbox";
 import Outbox from "../Outbox/Outbox";
 import MessagesUI from "./MessagesUI";
@@ -22,5 +21,17 @@ const MessagesLogic = (props) => {
         </div>
     )
 }
+
+// let mapStateToProps = (state) => {
+//     return {
+//
+//     }
+// }
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//
+//     }
+// }
+// const MessagesLogic = connect(mapStateToProps, mapDispatchToProps)(MessagesUI);
 
 export default MessagesLogic

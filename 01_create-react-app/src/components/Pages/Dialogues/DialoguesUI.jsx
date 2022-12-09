@@ -8,13 +8,15 @@ import MessagesLogic from "./Messages/MessagesLogic";
 
 const DialoguesUI = (props) => {
     const contacts =
-        props.state.DATA_Contacts.map(el => <Contact id={el.id} username={el.username}/>)
+        props.dialoguesPage.DATA_Contacts.map(el => <Contact id={el.id} username={el.username}/>)
 
     const reactTextAreaLink = React.createRef()
 
     const sendMessage = () => props.sendMessage()
-    const textAreaUpdate = () => props.textAreaUpdate(reactTextAreaLink.current.value)
-    const textAreaValue = () => props.state.textAreaText
+    const textAreaUpdate = () => {
+        props.textAreaUpdate(reactTextAreaLink.current.value);
+    }
+    const textAreaValue = () => props.dialoguesPage.textAreaText
 
     return (
         <div className={styles.Dialogues}>
@@ -25,7 +27,7 @@ const DialoguesUI = (props) => {
             <div className={styles.messages}>
                 <ChatInfo user_name="user_name" last_online="last_online"/>
                 <Search name="message_searching" id="message_searching"/>
-                <MessagesLogic id={props.id} MessagesData={props.state.DATA_Messages}/>
+                <MessagesLogic id={props.id} MessagesData={props.dialoguesPage.DATA_Messages}/>
                 <textarea
                     id='' name=''
                     ref={reactTextAreaLink}

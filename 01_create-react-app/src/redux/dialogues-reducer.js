@@ -22,7 +22,6 @@ const initialState = {
     textAreaText: '',
     textAreaOnChange(text) {
         this.textAreaText = text;
-        // store._callSubscriber(store.getState());
     },
 }
 

@@ -1,27 +1,19 @@
-import React from "react";
 import DialoguesUI from "./DialoguesUI";
 import {DIALOGUES_textAreaUpdateActionCreator, sendMessageActionCreator} from "../../../redux/dialogues-reducer";
-import StoreContext from "../../../StoreContext";
+import {connect} from "react-redux";
 
-const DialoguesLogic = (props) => {
-
-    return (
-        <StoreContext.Consumer>
-            {
-                (store) => {
-                    const state = store.getState().dialoguesPage
-                    const sendMessage = () => store.dispatch(sendMessageActionCreator())
-                    const textAreaUpdate = (text) => store.dispatch(DIALOGUES_textAreaUpdateActionCreator(text))
-
-                    return (
-                        <div>
-                            <DialoguesUI state={state} sendMessage={sendMessage} textAreaUpdate={textAreaUpdate}/>
-                        </div>
-                    )
-                }
-            }
-        </StoreContext.Consumer>
-    )
+let mapStateToProps = (state) => {
+    return {
+        dialoguesPage: state.dialoguesPage,
+        textAreaText: state.dialoguesPage.textAreaText,
+    }
 }
+let mapDispatchToProps = (dispatch) => {
+    return {
+        sendMessage: () => dispatch(sendMessageActionCreator()),
+        textAreaUpdate: (text) => dispatch(DIALOGUES_textAreaUpdateActionCreator(text))
+    }
+}
+const DialoguesLogic = connect(mapStateToProps, mapDispatchToProps)(DialoguesUI)
 
 export default DialoguesLogic

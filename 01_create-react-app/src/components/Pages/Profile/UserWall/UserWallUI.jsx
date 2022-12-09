@@ -4,7 +4,10 @@ import styles from './UserWall.module.css';
 const UserWallUI = (props) => {
     const textAreaFieldLink = React.createRef()
     const createPost = () => props.createPost()
-    const textAreaUpdate = () => props.textAreaUpdate(textAreaFieldLink.current.value)
+    const textAreaUpdate = () => {
+        props.textAreaUpdate(textAreaFieldLink.current.value);
+        console.log(props.state.textAreaText)
+    }
     const textAreaValue = () => props.state.textAreaText
 
     return (
