@@ -18,10 +18,5 @@ let renderApp = (state) => {
 }
 
 renderApp(store.getState())
-store.subscribe(() => renderApp(store.getState()))
-// store.subscribe(() => {
-//     let state = store.getState()
-//     renderApp(state)
-// })
 
 reportWebVitals();
