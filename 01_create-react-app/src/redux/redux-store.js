@@ -7,8 +7,10 @@ let reducers = combineReducers({
     profilePage: profileReducer,
     dialoguesPage: dialoguesReducer,
     navbarData: navbarReducer,
-})
+});
 
-let store = createStore(reducers)
+let store = createStore(reducers);
+
+window.store = store;
 
 export default store

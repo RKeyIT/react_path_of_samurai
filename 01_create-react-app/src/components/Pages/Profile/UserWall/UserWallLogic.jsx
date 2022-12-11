@@ -9,7 +9,7 @@ import {connect} from "react-redux";
 let mapStateToProps = (state) => {
     return {
         state: state.profilePage,
-        posts: state.profilePage.DATA_Posts.map(el => <UserPost name={el.username} message={el.message}
+        posts: state.profilePage.DATA_Posts.map(el => <UserPost key={el.id} name={el.username} message={el.message}
                                                     likes={el.likes} comments={el.comments}/>)
     }
 }

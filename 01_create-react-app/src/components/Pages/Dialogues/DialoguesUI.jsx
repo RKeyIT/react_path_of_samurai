@@ -8,7 +8,7 @@ import MessagesLogic from "./Messages/MessagesLogic";
 
 const DialoguesUI = (props) => {
     const contacts =
-        props.dialoguesPage.DATA_Contacts.map(el => <Contact id={el.id} username={el.username}/>)
+        props.dialoguesPage.DATA_Contacts.map(el => <Contact id={el.id} key={el.id} username={el.username}/>)
 
     const reactTextAreaLink = React.createRef()
 

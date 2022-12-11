@@ -20,31 +20,30 @@ const initialState = {
         {id: '4', ownerId: 123423, message: ''},
     ],
     textAreaText: '',
-    textAreaOnChange(text) {
-        this.textAreaText = text;
-    },
 }
 
-const dialoguesReducer = (state = initialState, action) => {
-    const MESSAGE_SENDING = 'MESSAGE_SENDING'
-    const DIALOGUES_textAreaUpdate = 'DIALOGUES_textAreaUpdate'
+const MESSAGE_SENDING = 'MESSAGE_SENDING'
+const DIALOGUES_textAreaUpdate = 'DIALOGUES_textAreaUpdate'
 
-    // 2. message sending
+const dialoguesReducer = (state = initialState, action) => {
     switch (action.type) {
         case MESSAGE_SENDING:
-            let dataArr = state.DATA_Messages
-            dataArr.push({
-                type: MESSAGE_SENDING,
-                idMessage: dataArr.length,
-                idUser: 999,
-                username: 'HERE_WILL_BE_USER_NAME',
-                message: state.textAreaText,
-            })
-            state.textAreaText = ''
-            return state
+            return {
+                ...state,
+                DATA_Messages: [...state.DATA_Messages,
+                    {
+                        type: MESSAGE_SENDING,
+                        idMessage: state.DATA_Messages.length,
+                        idUser: 999,
+                        username: 'HERE_WILL_BE_USER_NAME',
+                        message: state.textAreaText,
+                    }
+                ],
+                textAreaText: ''
+            }
         case DIALOGUES_textAreaUpdate:
-            state.textAreaOnChange(action.text)
-            return state
+            return {...state,
+                textAreaText: action.text}
         default:
             return state
     }

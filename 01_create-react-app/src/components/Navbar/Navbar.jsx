@@ -18,10 +18,8 @@ const Navbar = (props) => {
             <div className={styles.BlockOfFriends}>
                 FRIENDS BLOCK
                 <ul className={styles.friends}>
-                    {friends.map((el, index) => {
-                        if (index < 3) {
-                            return <Friend id={friends.id} name={friends.name}/>
-                        }
+                    {friends.map((el) => {
+                            return <Friend id={el.id} key={el.id} name={el.name}/>
                     })}
 
 

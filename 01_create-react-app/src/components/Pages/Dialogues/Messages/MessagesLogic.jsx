@@ -13,7 +13,8 @@ const MessagesLogic = (props) => {
     }
 
     const messagesHistory =
-        props.MessagesData.map(el => isFromCurrentUser(el) ? <Outbox message={el.message} /> : <Inbox message={el.message} />)
+        props.MessagesData.map(el => isFromCurrentUser(el) ?
+            <Outbox message={el.message} key={el.id} /> : <Inbox message={el.message} key={el.id} />)
 
     return (
         <div>

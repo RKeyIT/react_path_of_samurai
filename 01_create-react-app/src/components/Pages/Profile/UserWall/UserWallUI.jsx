@@ -6,7 +6,6 @@ const UserWallUI = (props) => {
     const createPost = () => props.createPost()
     const textAreaUpdate = () => {
         props.textAreaUpdate(textAreaFieldLink.current.value);
-        console.log(props.state.textAreaText)
     }
     const textAreaValue = () => props.state.textAreaText
 
