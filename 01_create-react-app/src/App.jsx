@@ -3,9 +3,10 @@ import './App.css';
 import Header from './components/Header/Header';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Footer from "./components/Footer/Footer";
-import ProfileLogic from "./components/Pages/Profile/ProfileLogic";
 import DialoguesLogic from "./components/Pages/Dialogues/DialoguesLogic";
 import NavbarLogic from "./components/Navbar/Navbar";
+import ProfileLogic from "./components/Pages/Profile/ProfileLogic";
+import CommunityLogic from "./components/Pages/Community/CommunityLogic";
 
 const App = (props) => {
     return (
@@ -17,7 +18,7 @@ const App = (props) => {
                     <Routes>
                         <Route path="/profile/*" element={<ProfileLogic />}/>
                         <Route path="/dialogues/*" element={<DialoguesLogic />}/>
-                        <Route path="/community/*"></Route> element={}
+                        <Route path="/community/*" element={<CommunityLogic />}/>
                         <Route path="/settings/*"></Route> element={}
                         <Route path="/learnings/*"></Route> element={}
                         <Route path="/teaching/*"></Route> element={}

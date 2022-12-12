@@ -19,6 +19,7 @@
 .main {
   grid-area: main;
   overflow: auto;
+  background-color: #11592e;
 }
 
 .content {

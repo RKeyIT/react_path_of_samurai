@@ -1,0 +1,11 @@
+.user {
+    background-color: #114f60;
+    height: 200px;
+    margin: 5px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

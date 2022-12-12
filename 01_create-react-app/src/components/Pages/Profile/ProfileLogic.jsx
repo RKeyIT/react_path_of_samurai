@@ -1,7 +1,7 @@
 import React from 'react';
 import ProfileUI from "./ProfileUI";
 
-const ProfileLogic = (props) => {
+const ProfileLogic = () => {
     return (
         <div>
             <ProfileUI/>
