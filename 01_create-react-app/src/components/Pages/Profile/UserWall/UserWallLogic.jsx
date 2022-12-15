@@ -3,7 +3,7 @@ import {
     createPostActionCreator, PROFILE_textAreaUpdateActionCreator,
 } from "../../../../redux/profile-reducer";
 import UserWallUI from "./UserWallUI";
-import UserPost from "../UserPost/UserPost";
+import UserPost from "./UserPost/UserPost";
 import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {

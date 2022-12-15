@@ -24,7 +24,7 @@ _**Project Map**_
        1. Navbar
           1. NavbarItem
        2. Content
-          1. Statusbar
+          1. ProfileStatus
           2. UserPage
           3. UserWallUI
     3. Footer

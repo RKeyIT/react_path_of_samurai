@@ -1,11 +1,10 @@
 .Navbar {
-    background-color: rgba(51, 17, 17, 0.75);
     grid-area: navbar;
     overflow: auto;
 }
 
 .list {
-    margin: 15px;
+    margin: 0 15px 15px 15px;
     list-style: none;
     display: flex;
     flex-flow: column nowrap;

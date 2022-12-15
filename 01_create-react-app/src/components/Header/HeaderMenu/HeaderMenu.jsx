@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './HeaderMenu.module.css';
 import HeaderMenuItem from './HeaderMenu_Item/HeaderMenuItem';
+import Button from "../../Action/Button/Button";
 
 const HeaderMenu = () => {
     return (
@@ -11,6 +12,7 @@ const HeaderMenu = () => {
                 <HeaderMenuItem name='Content' link='/content' />
                 <HeaderMenuItem name='Donate' link='/donate' />
             </ul>
+            <Button text="Hide/Show Menu" button={styles.button} buttonWrapper={styles.buttonWrapper}/>
         </div>
     );
 };
