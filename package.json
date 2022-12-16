@@ -1,5 +1,6 @@
 {
-  "name": "01_create-react-app",
+  "homepage": "https://RKeyIT.github.io/react_path_of_samurai",
+  "name": "react_path_of_samurai",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
