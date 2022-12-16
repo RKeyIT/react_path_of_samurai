@@ -1,4 +1,3 @@
-import React from "react";
 import TopUserUI from "./TopUserUI";
 import {connect} from "react-redux";
 import {subscribeUserActionCreator} from "../../../../redux/community-reducer";

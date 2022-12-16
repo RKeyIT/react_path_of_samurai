@@ -1,10 +1,7 @@
 import {connect} from "react-redux";
 import CommunityUI from "./CommunityUI";
-import {setUsersActionCreator, subscribeUserActionCreator} from "../../../redux/community-reducer";
+import {setUsersActionCreator} from "../../../redux/community-reducer";
 
-// const isSubscribed = (user) => {
-//     return user.subscribed ? 'unsubscribe' : 'subscribe'
-// }
 
 let mapStateToProps = (state) => {
     return {
