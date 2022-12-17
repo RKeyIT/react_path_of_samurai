@@ -12,8 +12,8 @@ const App = () => {
     return (
         <BrowserRouter>
             <div className='wrapper-app'>
-                <Header/>
-                <NavbarLogic/>
+                <Header />
+                <NavbarLogic />
                 <main className="main">
                     <div className="content">
                         <Routes>
