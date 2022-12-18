@@ -160,7 +160,7 @@ const communityReducer = (state = initialState, action) => {
                 communityPage: {
                     ...state.communityPage,
                     DATA_Users: state.communityPage.DATA_Users.map((el, index) => {
-                        console.log(el, index);
+                        // console.log(el, index);
                         return el.id === action.id
                             ? {...el, subscribed: !state.communityPage.DATA_Users[index].subscribed}
                             : el;
