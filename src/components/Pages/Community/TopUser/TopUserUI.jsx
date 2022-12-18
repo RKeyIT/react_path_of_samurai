@@ -23,6 +23,8 @@ const TopUserUI = (props) => {
                 // )
         });
     debugger
+    // USERS НЕ УСПЕВАЕТ ЗАПИСАТЬСЯ ИЗ АСИНХРОНКИ
+    // ИСПРАВИТЬ ЭТО
     users = users.map(el => {
         el.firstName = el.name;
         el.secondName = "SECOND_NAME";
