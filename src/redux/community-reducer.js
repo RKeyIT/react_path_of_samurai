@@ -158,7 +158,7 @@ const communityReducer = (state = initialState, action) => {
                 ...state,
                 DATA_Users: state.DATA_Users.map((el, index) => {
                     return el.id === action.id
-                        ? {...el, subscribed: !state.DATA_Users[index].subscribed}
+                        ? {...el, subscribed: !state.DATA_Users[index].subscribed, followed: !state.DATA_Users[index].followed}
                         : el;
                 })
             }
