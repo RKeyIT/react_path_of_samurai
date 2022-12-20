@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import CommunityUI from "./CommunityUI";
-import {setUsersActionCreator} from "../../../redux/community-reducer";
+// import {setUsersActionCreator} from "../../../redux/community-reducer";
 
 
 let mapStateToProps = (state) => {
@@ -10,9 +10,7 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        setUsers: (users) => {
-            dispatch(setUsersActionCreator(users))
-        }
+
     }
 }
 

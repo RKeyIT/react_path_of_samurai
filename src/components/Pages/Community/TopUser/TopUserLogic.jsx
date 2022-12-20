@@ -1,10 +1,10 @@
 import TopUserUI from "./TopUserUI";
 import {connect} from "react-redux";
-import {subscribeUserActionCreator} from "../../../../redux/community-reducer";
+import {setUsersActionCreator, subscribeUserActionCreator} from "../../../../redux/community-reducer";
 
 const mapStateToProps = (state) => {
     return {
-        state: state.communityPage,
+        users: state.communityPage.DATA_Users,
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -12,6 +12,9 @@ const mapDispatchToProps = (dispatch) => {
         subscr: (id) => {
             return dispatch(subscribeUserActionCreator(id))
         },
+        setUsers: (users) => {
+            dispatch(setUsersActionCreator(users))
+        }
     }
 }
 
