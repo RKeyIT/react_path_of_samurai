@@ -12,9 +12,10 @@ class TopUserUI extends React.Component {
 
     componentDidMount() {
         axios
-            .get("https://social-network.samuraijs.com/api/1.0/users")
+            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
-                this.setUsers(response.data.items)
+                this.setUsers(response.data.items);
+                this.props.setTotalUsersCount(response.data.totalCount)
             });
     }
 
@@ -22,7 +23,30 @@ class TopUserUI extends React.Component {
         this.setUsers([])
     }
 
+    pageChanger = pageNumber => {
+        this.props.setCurrentPage(pageNumber)
+        axios
+            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
+            .then(response => {
+                this.setUsers(response.data.items)
+            });
+    }
+
     render() {
+        let countOfPages = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
+
+        let pages = []
+        for (let i = 1; i <= countOfPages; i++) {
+            pages.push(i)
+        }
+
+        let curP = this.props.currentPage;
+        let curPF = ((curP - 5) < 0) ?  0  : curP - 3 ;
+        let curPL = curP + 2;
+        let slicedPages = pages.slice( curPF, curPL);
+
+
+
         return <>
             {
                 this.props.users.map(el => {
@@ -38,6 +62,14 @@ class TopUserUI extends React.Component {
                     </div>
                 })
             }
+            <div>
+                { slicedPages.map(e => {
+                    return (
+                        <span className={this.props.currentPage === e ? styles.currentPage : ''}
+                              onClick={ () => this.pageChanger(e) }>{e}</span>
+                    )
+                })}
+            </div>
         </>
     }
 }

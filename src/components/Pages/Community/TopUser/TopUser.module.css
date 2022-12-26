@@ -9,3 +9,8 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.currentPage {
+    font-weight: bold;
+    filter: brightness(76%);
+}
