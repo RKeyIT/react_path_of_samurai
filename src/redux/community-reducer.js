@@ -165,7 +165,9 @@ const communityReducer = (state = initialState, action) => {
         case SET_USERS:
             return {
                 ...state,
-                    DATA_Users: [...state.DATA_Users, ...action.users]
+                    DATA_Users: [
+                        // ...state.DATA_Users,
+                        ...action.users]
             }
         default:
             return state
