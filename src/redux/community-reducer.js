@@ -4,6 +4,7 @@ const initialState = {
     pageSize: 8,
     totalUsersCount: 0,
     currentPage: 1,
+    isFetching: false,
 }
 
 
@@ -14,14 +15,18 @@ const communityReducer = (state = initialState, action) => {
                 ...state,
                 DATA_Users: state.DATA_Users.map((el, index) => {
                     return el.id === action.id
-                        ? {...el, subscribed: !state.DATA_Users[index].subscribed, followed: !state.DATA_Users[index].followed}
+                        ? {
+                            ...el,
+                            subscribed: !state.DATA_Users[index].subscribed,
+                            followed: !state.DATA_Users[index].followed
+                        }
                         : el;
                 })
             }
         case SET_USERS:
             return {
                 ...state,
-                    DATA_Users: action.users
+                DATA_Users: action.users
             }
         case SET_CURRENT_PAGE:
             return {
@@ -33,24 +38,30 @@ const communityReducer = (state = initialState, action) => {
                 ...state,
                 totalUsersCount: action.totalCount
             }
+        case TOGGLE_FETCHING:
+            return {
+                ...state,
+                isFetching: !state.isFetching
+            }
         default:
             return state
     }
 }
 
+const TOGGLE_FETCHING = "TOGGLE_FETCHING"
+export const toggleFetchingActionCreator = () => ({type: TOGGLE_FETCHING})
+
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT"
-export const setTotalUsersCountActionCreator = (totalCount) => {
-    return {type: SET_TOTAL_USERS_COUNT, totalCount}
-}
+export const setTotalUsersCountActionCreator = totalCount => ({type: SET_TOTAL_USERS_COUNT, totalCount})
 
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
-export const setCurrentPageActionCreator = currentPage => ({ type: SET_CURRENT_PAGE, currentPage })
+export const setCurrentPageActionCreator = currentPage => ({type: SET_CURRENT_PAGE, currentPage})
 
 const SUBSCRIBE_ACTION = "SUBSCRIBE_ACTION"
-export const subscribeUserActionCreator = (id) => ({ type: SUBSCRIBE_ACTION, id: id })
+export const subscribeUserActionCreator = id => ({type: SUBSCRIBE_ACTION, id})
 
 const SET_USERS = "SET_USERS"
-export const setUsersActionCreator = (users) => ({ type: SET_USERS, users })
+export const setUsersActionCreator = users => ({type: SET_USERS, users})
 
 export default communityReducer;
 // DATA_Users: [
