@@ -3,7 +3,7 @@ const initialState = {
     DATA_Users: [],
     pageSize: 8,
     totalUsersCount: 0,
-    currentPage: 3,
+    currentPage: 1,
 }
 
 
@@ -40,7 +40,6 @@ const communityReducer = (state = initialState, action) => {
 
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT"
 export const setTotalUsersCountActionCreator = (totalCount) => {
-    console.log(totalCount)
     return {type: SET_TOTAL_USERS_COUNT, totalCount}
 }
 
