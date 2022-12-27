@@ -49,19 +49,19 @@ const communityReducer = (state = initialState, action) => {
 }
 
 const TOGGLE_FETCHING = "TOGGLE_FETCHING"
-export const toggleFetchingActionCreator = () => ({type: TOGGLE_FETCHING})
+export const toggleFetching = () => ({type: TOGGLE_FETCHING})
 
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT"
-export const setTotalUsersCountActionCreator = totalCount => ({type: SET_TOTAL_USERS_COUNT, totalCount})
+export const setTotalUsersCount = totalCount => ({type: SET_TOTAL_USERS_COUNT, totalCount})
 
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
-export const setCurrentPageActionCreator = currentPage => ({type: SET_CURRENT_PAGE, currentPage})
+export const setCurrentPage = currentPage => ({type: SET_CURRENT_PAGE, currentPage})
 
 const SUBSCRIBE_ACTION = "SUBSCRIBE_ACTION"
-export const subscribeUserActionCreator = id => ({type: SUBSCRIBE_ACTION, id})
+export const subscribeUser = id => ({type: SUBSCRIBE_ACTION, id})
 
 const SET_USERS = "SET_USERS"
-export const setUsersActionCreator = users => ({type: SET_USERS, users})
+export const setUsers = users => ({type: SET_USERS, users})
 
 export default communityReducer;
 // DATA_Users: [

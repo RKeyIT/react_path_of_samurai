@@ -1,8 +1,8 @@
 import {connect} from "react-redux";
 import {
-    setCurrentPageActionCreator, setTotalUsersCountActionCreator,
-    setUsersActionCreator,
-    subscribeUserActionCreator, toggleFetchingActionCreator
+    setCurrentPage, setTotalUsersCount,
+    setUsers,
+    subscribeUser, toggleFetching
 } from "../../../../redux/community-reducer";
 import React from "react";
 import axios from "axios";
@@ -81,25 +81,27 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        subscribeToUser: (id) => {
-            dispatch(subscribeUserActionCreator(id))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersActionCreator(users))
-        },
-        setCurrentPage: (numberOfPage) => {
-            dispatch(setCurrentPageActionCreator(numberOfPage))
-        },
-        setTotalUsersCount: (totalCount) => {
-            dispatch(setTotalUsersCountActionCreator(totalCount))
-        },
-        toggleFetching: () => {
-            dispatch(toggleFetchingActionCreator())
-        }
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         subscribeToUser: (id) => {
+//             dispatch(subscribeUserActionCreator(id))
+//         },
+//         setUsers: (users) => {
+//             dispatch(setUsersActionCreator(users))
+//         },
+//         setCurrentPage: (numberOfPage) => {
+//             dispatch(setCurrentPageActionCreator(numberOfPage))
+//         },
+//         setTotalUsersCount: (totalCount) => {
+//             dispatch(setTotalUsersCountActionCreator(totalCount))
+//         },
+//         toggleFetching: () => {
+//             dispatch(toggleFetchingActionCreator())
+//         }
+//     }
+// }
 
-const TopUserLogic = connect(mapStateToProps, mapDispatchToProps)(TopUserClass)
+const TopUserLogic = connect(mapStateToProps,
+    { subscribeUser, setUsers, setCurrentPage, setTotalUsersCount, toggleFetching }
+    )(TopUserClass)
 export default TopUserLogic
