@@ -1,4 +1,5 @@
 const initialState = {
+    profile_id: null,
     DATA_Posts: [
         {id: 0, userid: 0, username: 'PATIENT_ZERO', message: 'What IS your name?!', likes: 0, comments: 1},
         {id: 1, userid: 0, username: 'Alex Beachman', message: 'What ARE you mean?!', likes: 6, comments: 2},
@@ -41,10 +42,17 @@ const profileReducer = (state = initialState, action) => {
             return { ...state,
                 textAreaText: action.text
             }
+            case SET_USER_PROFILE:
+            return { ...state,
+                profile_id: action.profile_id
+            }
         default:
             return state
     }
 }
+
+const SET_USER_PROFILE = 'SET_USER_PROFILE'
+export const setUserProfile = (profile_id) => ({ type: SET_USER_PROFILE, profile_id })
 
 export const createPostActionCreator = () => ({type: 'POST_SENDING'})
 export const PROFILE_textAreaUpdateActionCreator = (text) => ({

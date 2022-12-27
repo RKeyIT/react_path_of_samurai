@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./TopUser.module.css";
 import Button from "../../../Action/Button/Button";
+import {NavLink} from "react-router-dom";
 
 
 // TODO: The first line of users is TOP users of platform by one of skills
@@ -25,19 +26,19 @@ const TopUserUI = (props) => {
                 props.users.map(el => {
                     return (
                         <div className={styles.user}
-                             // key={el.id}
-                             key={Math.random() * 10000002}
+                             key={el.id}
+                            // key={Math.random() * 10000002}
                         >
-                            <div className={styles.avatarContainer}>
-                                <img className={styles.avatar} src={el.photos.small} alt="no avatar"/>
-                            </div>
+                            <NavLink to={'/profile/' + el.id} className={styles.avatarContainer}>
+                                    <img className={styles.avatar} src={el.photos.small} alt="no avatar"/>
+                            </NavLink>
                             <div>
                                 {el.name}
                             </div>
                             <div>{el.id}</div>
                             <div>
                                 <Button text={el.followed ? 'unsubscribe' : 'subscribe'}
-                                        callback={() => props.subscribeToUser(el.id)}/>
+                                        callback={() => props.subscribeUser(el.id)}/>
                             </div>
                         </div>
                     )

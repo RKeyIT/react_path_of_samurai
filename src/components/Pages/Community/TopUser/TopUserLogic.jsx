@@ -59,12 +59,12 @@ class TopUserClass extends React.Component {
 
         <TopUserUI
             // props={this.propsForNextComponent}
-            totalUsersCount={this.props.totalUsersCount}
-            pageSize={this.props.pageSize}
-            currentPage={this.props.currentPage}
             users={this.props.users}
+            pageSize={this.props.pageSize}
+            totalUsersCount={this.props.totalUsersCount}
+            currentPage={this.props.currentPage}
             pageChanger={this.pageChanger}
-            subscribeToUser={this.props.subscribeToUser}
+            subscribeUser={this.props.subscribeUser}
         />
             {this.props.isFetching ? <Preloader /> : null}
         </>
