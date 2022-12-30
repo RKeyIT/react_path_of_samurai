@@ -14,7 +14,7 @@ const ProfileUI = (props) => {
     return (
         <div className={styles.Profile}>
             <div className={styles.ProfileContainer}>
-                <UserInfoUI />
+                <UserInfoUI profile_id={props.profile_id}/>
                 <UserActionsLogic />
             </div>
             <UserWallLogic  />

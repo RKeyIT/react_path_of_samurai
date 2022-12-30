@@ -11,16 +11,17 @@ body {
   box-sizing: border-box;
 }
 
-/*delete scrollbar*/
-/* chrome, safari */
-.main::-webkit-scrollbar {
-  width: 0;
-}
-
-/* ie 10+ */
-.main {
-  -ms-overflow-style: none;
-}
+// DELETED SCROLLBAR
+//
+///*delete scrollbar*/
+///* chrome, safari */
+//.main::-webkit-scrollbar {
+//  width: 0;
+//}
+///* ie 10+ */
+//.main {
+//  -ms-overflow-style: none;
+//}
 
 .wrapper-app {
   display: grid;
