@@ -31,9 +31,9 @@ class TopUserClass extends React.Component {
             });
     }
 
-    componentWillUnmount() {
-        this.setUsers([])
-    }
+    // componentWillUnmount() {
+    //     this.setUsers([])
+    // }
 
     pageChanger = pageNumber => {
         this.toggleFetching();

@@ -1,6 +1,10 @@
-.AvatarPlace {
+.AvatarPlace,
+.AvatarPlace > img {
     border-radius: 20px;
     border: 2px black solid;
     background: url(../../../../../img/User_ava.png) no-repeat 50% 50%;
     background-size: cover;
+}
+.AvatarPlace > img {
+    height: 100%;
 }

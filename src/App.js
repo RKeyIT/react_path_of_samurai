@@ -18,10 +18,10 @@ const App = () => {
                     <main className="main">
                         <div className="content">
                             <Routes>
-                                <Route path="/profile/:userId" element={<ProfileLogic/>}/>
-                                <Route path="/profile/*" element={<ProfileLogic/>}/>
-                                <Route path="/" element={<ProfileLogic/>}/>
                                 <Route path="*" element={<NotFound/>}/>
+                                <Route path="/" element={<ProfileLogic/>}/>
+                                <Route path="/profile" element={<ProfileLogic/>}/>
+                                <Route path="/profile/:userId" element={<ProfileLogic/>}/>
                                 <Route path="/dialogues/*" element={<DialoguesLogic/>}/>
                                 <Route path="/community/*" element={<CommunityLogic/>}/>
                                 <Route path="/settings/*"></Route> element={}

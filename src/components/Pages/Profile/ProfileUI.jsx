@@ -7,14 +7,14 @@ import Preloader from "../../Action/Preloader/Preloader";
 
 
 const ProfileUI = (props) => {
-    if(!props.profile_id) {
+    if(!props.profile) {
         return <Preloader/>
     }
 
     return (
         <div className={styles.Profile}>
             <div className={styles.ProfileContainer}>
-                <UserInfoUI profile_id={props.profile_id}/>
+                <UserInfoUI profile={props.profile} />
                 <UserActionsLogic />
             </div>
             <UserWallLogic  />

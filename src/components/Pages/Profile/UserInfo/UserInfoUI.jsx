@@ -4,10 +4,10 @@ import UserAvatar from "./UserAvatar/UserAvatar";
 import UserDescription from "./UserDescription/UserDescription";
 import UserCard from "./UserCard/UserCard";
 
-const UserInfoUI = () => {
+const UserInfoUI = (props) => {
     return (
         <div className={styles.UserInfo}>
-            <UserAvatar />
+            <UserAvatar avatar={props.profile.photos.large}/>
             <UserDescription />
             <UserCard />
         </div>

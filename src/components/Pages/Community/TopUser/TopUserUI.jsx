@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./TopUser.module.css";
 import Button from "../../../Action/Button/Button";
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
 // TODO: The first line of users is TOP users of platform by one of skills
@@ -27,11 +27,10 @@ const TopUserUI = (props) => {
                     return (
                         <div className={styles.user}
                              key={el.id}
-                            // key={Math.random() * 10000002}
                         >
-                            <NavLink to={'/profile/' + el.id} className={styles.avatarContainer}>
-                                    <img className={styles.avatar} src={el.photos.small} alt="no avatar"/>
-                            </NavLink>
+                            <Link to={'/profile/' + el.id} className={styles.avatarContainer}>
+                                    <img className={styles.avatar} src={el.photos.large} alt="no avatar"/>
+                            </Link>
                             <div>
                                 {el.name}
                             </div>
@@ -48,7 +47,7 @@ const TopUserUI = (props) => {
             <div>
                 {slicedPages.map(e => {
                     return (
-                        <span className={props.currentPage === e ? styles.currentPage : ''}
+                        <span key={e} className={props.currentPage === e ? styles.currentPage : ''}
                               onClick={() => props.pageChanger(e)}>{e}</span>
                     )
                 })}
