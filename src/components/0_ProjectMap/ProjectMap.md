@@ -17,7 +17,7 @@ _**Project Colors**_
 _**Project Map**_
 
 **App.js**
-    1. Header
+    1. HeaderUI
        1. HeaderLogo
        2. HeaderMenu
     2. Main

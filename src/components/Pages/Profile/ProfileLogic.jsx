@@ -10,7 +10,6 @@ class ProfileLogic extends React.Component {
         let userId = this.props.router.params.userId ?? '2';
         axios
             .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-            // .get(`https://social-network.samuraijs.com/api/1.0/profile/`)
             .then(response => {
                 this.props.setUserProfile(response.data)
             });
