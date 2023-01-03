@@ -31,10 +31,6 @@ class TopUserClass extends React.Component {
             });
     }
 
-    // componentWillUnmount() {
-    //     this.setUsers([])
-    // }
-
     pageChanger = pageNumber => {
         this.toggleFetching();
         this.props.setCurrentPage(pageNumber)
@@ -46,19 +42,10 @@ class TopUserClass extends React.Component {
             });
     }
 
-    // propsForNextComponent = {
-    //     totalUsersCount: this.props.totalUsersCount,
-    //     pageSize: this.props.pageSize,
-    //     currentPage: this.props.currentPage,
-    //     users: this.props.users,
-    //     pageChanger: this.pageChanger,
-    // }
 
     render() {
         return <>
-
         <TopUserUI
-            // props={this.propsForNextComponent}
             users={this.props.users}
             pageSize={this.props.pageSize}
             totalUsersCount={this.props.totalUsersCount}
