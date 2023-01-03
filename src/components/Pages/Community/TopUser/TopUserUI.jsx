@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./TopUser.module.css";
 import Button from "../../../Action/Button/Button";
 import {Link} from "react-router-dom";
-
+import axios from "axios";
 
 // TODO: The first line of users is TOP users of platform by one of skills
 
@@ -37,7 +37,17 @@ const TopUserUI = (props) => {
                             <div>{el.id}</div>
                             <div>
                                 <Button text={el.followed ? 'unsubscribe' : 'subscribe'}
-                                        callback={() => props.subscribeUser(el.id)}/>
+                                        callback={() => {
+                                            axios
+                                                .post(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`,
+                                                    null, { withCredentials: true }
+                                                )
+                                                .then(response => {
+                                                    if (response.data.resultCode === 0) {
+                                                        return props.subscribeUser(el.id)
+                                                    }
+                                                });
+                                        }}/>
                             </div>
                         </div>
                     )
