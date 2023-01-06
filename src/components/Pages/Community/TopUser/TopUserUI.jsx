@@ -29,7 +29,7 @@ const TopUserUI = (props) => {
                              key={el.id}
                         >
                             <Link to={'/profile/' + el.id} className={styles.avatarContainer}>
-                                    <img className={styles.avatar} src={el.photos.large} alt="no avatar"/>
+                                <img className={styles.avatar} src={el.photos.large} alt="no avatar"/>
                             </Link>
                             <div>
                                 {el.name}
@@ -38,15 +38,37 @@ const TopUserUI = (props) => {
                             <div>
                                 <Button text={el.followed ? 'unsubscribe' : 'subscribe'}
                                         callback={() => {
-                                            axios
-                                                .post(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`,
-                                                    null, { withCredentials: true }
-                                                )
-                                                .then(response => {
-                                                    if (response.data.resultCode === 0) {
-                                                        return props.subscribeUser(el.id)
-                                                    }
-                                                });
+                                            el.followed
+                                                ?
+                                                axios
+                                                    .delete(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`,
+                                                        {
+                                                            withCredentials: true,
+                                                            headers: {
+                                                                "API-KEY": "a5a30551-a391-47c5-bb3f-e86cddddc51a"
+                                                            }
+                                                        }
+                                                    )
+                                                    .then(response => {
+                                                        if (response.data.resultCode === 0) {
+                                                            props.subscribeUser(el.id)
+                                                        }
+                                                    })
+                                                :
+                                                axios
+                                                    .post(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`,
+                                                        null, {
+                                                            withCredentials: true,
+                                                            headers: {
+                                                                "API-KEY": "a5a30551-a391-47c5-bb3f-e86cddddc51a"
+                                                            }
+                                                        }
+                                                    )
+                                                    .then(response => {
+                                                        if (response.data.resultCode === 0) {
+                                                            props.subscribeUser(el.id)
+                                                        }
+                                                    });
                                         }}/>
                             </div>
                         </div>

@@ -23,7 +23,9 @@ class TopUserClass extends React.Component {
     componentDidMount() {
         this.toggleFetching();
         axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+                withCredentials: true,
+            })
             .then(response => {
                 this.toggleFetching();
                 this.setUsers(response.data.items);
@@ -35,7 +37,9 @@ class TopUserClass extends React.Component {
         this.toggleFetching();
         this.props.setCurrentPage(pageNumber)
         axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
+            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
+                withCredentials: true,
+            })
             .then(response => {
                 this.toggleFetching();
                 this.setUsers(response.data.items)
@@ -45,15 +49,15 @@ class TopUserClass extends React.Component {
 
     render() {
         return <>
-        <TopUserUI
-            users={this.props.users}
-            pageSize={this.props.pageSize}
-            totalUsersCount={this.props.totalUsersCount}
-            currentPage={this.props.currentPage}
-            pageChanger={this.pageChanger}
-            subscribeUser={this.props.subscribeUser}
-        />
-            {this.props.isFetching ? <Preloader /> : null}
+            <TopUserUI
+                users={this.props.users}
+                pageSize={this.props.pageSize}
+                totalUsersCount={this.props.totalUsersCount}
+                currentPage={this.props.currentPage}
+                pageChanger={this.pageChanger}
+                subscribeUser={this.props.subscribeUser}
+            />
+            {this.props.isFetching ? <Preloader/> : null}
         </>
     }
 }
@@ -68,27 +72,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         subscribeToUser: (id) => {
-//             dispatch(subscribeUserActionCreator(id))
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersActionCreator(users))
-//         },
-//         setCurrentPage: (numberOfPage) => {
-//             dispatch(setCurrentPageActionCreator(numberOfPage))
-//         },
-//         setTotalUsersCount: (totalCount) => {
-//             dispatch(setTotalUsersCountActionCreator(totalCount))
-//         },
-//         toggleFetching: () => {
-//             dispatch(toggleFetchingActionCreator())
-//         }
-//     }
-// }
-
 const TopUserLogic = connect(mapStateToProps,
-    { subscribeUser, setUsers, setCurrentPage, setTotalUsersCount, toggleFetching }
-    )(TopUserClass)
+    {subscribeUser, setUsers, setCurrentPage, setTotalUsersCount, toggleFetching}
+)(TopUserClass)
 export default TopUserLogic
