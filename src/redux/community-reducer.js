@@ -5,6 +5,7 @@ const initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
+    buttonBlock: [],
 }
 
 
@@ -43,6 +44,13 @@ const communityReducer = (state = initialState, action) => {
                 ...state,
                 isFetching: !state.isFetching
             }
+        case TOGGLE_BUTTON:
+            return {
+                ...state,
+                buttonBlock: state.buttonBlock.some(id => id === action.id)
+                    ? state.buttonBlock.filter(id => id !== action.id)
+                    : [...state.buttonBlock, action.id]
+            }
         default:
             return state
     }
@@ -50,6 +58,9 @@ const communityReducer = (state = initialState, action) => {
 
 const TOGGLE_FETCHING = "TOGGLE_FETCHING"
 export const toggleFetching = () => ({type: TOGGLE_FETCHING})
+
+const TOGGLE_BUTTON = "TOGGLE_BUTTON"
+export const toggleButton = (id) => ({type: TOGGLE_BUTTON, id})
 
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT"
 export const setTotalUsersCount = totalCount => ({type: SET_TOTAL_USERS_COUNT, totalCount})

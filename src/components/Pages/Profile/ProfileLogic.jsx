@@ -1,17 +1,15 @@
 import React from 'react';
 import ProfileUI from "./ProfileUI";
-import axios from "axios";
 import {connect} from "react-redux";
 import { setUserProfile } from "../../../redux/profile-reducer";
 import { useLocation, useNavigate, useParams, } from "react-router-dom";
+import {API} from "../../../api/api";
 
 class ProfileLogic extends React.Component {
     componentDidMount() {
         let userId = this.props.router.params.userId ?? '2';
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-            .then(response => {
-                this.props.setUserProfile(response.data)
+        API.getProfile(userId).then(data => {
+                this.props.setUserProfile(data)
             });
     }
     render() {

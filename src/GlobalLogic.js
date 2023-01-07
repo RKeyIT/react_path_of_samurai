@@ -1,3 +1,3 @@
 export const DoubleStyleClasses = (localClass, propsClass) => {
-    return ` ${propsClass} ${localClass}`
+    return `${localClass} ${propsClass}`
 }

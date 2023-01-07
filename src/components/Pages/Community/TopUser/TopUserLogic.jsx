@@ -2,12 +2,12 @@ import {connect} from "react-redux";
 import {
     setCurrentPage, setTotalUsersCount,
     setUsers,
-    subscribeUser, toggleFetching
+    subscribeUser, toggleButton, toggleFetching
 } from "../../../../redux/community-reducer";
 import React from "react";
-import axios from "axios";
 import TopUserUI from "./TopUserUI";
 import Preloader from "../../../Action/Preloader/Preloader";
+import { API } from "../../../../api/api";
 
 
 class TopUserClass extends React.Component {
@@ -20,29 +20,25 @@ class TopUserClass extends React.Component {
         return this.props.toggleFetching()
     }
 
+    toggleButton = () => {
+        return this.props.toggleButton()
+    }
+
     componentDidMount() {
         this.toggleFetching();
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-                withCredentials: true,
-            })
-            .then(response => {
+        API.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
                 this.toggleFetching();
-                this.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount)
+                this.setUsers(data.items);
+                this.props.setTotalUsersCount(data.totalCount)
             });
     }
 
     pageChanger = pageNumber => {
         this.toggleFetching();
         this.props.setCurrentPage(pageNumber)
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
-                withCredentials: true,
-            })
-            .then(response => {
+        API.getUsers(pageNumber, this.props.pageSize).then(data => {
                 this.toggleFetching();
-                this.setUsers(response.data.items)
+                this.setUsers(data.items)
             });
     }
 
@@ -56,6 +52,8 @@ class TopUserClass extends React.Component {
                 currentPage={this.props.currentPage}
                 pageChanger={this.pageChanger}
                 subscribeUser={this.props.subscribeUser}
+                buttonBlock={this.props.buttonBlock}
+                toggleButton={this.props.toggleButton}
             />
             {this.props.isFetching ? <Preloader/> : null}
         </>
@@ -69,10 +67,11 @@ const mapStateToProps = (state) => {
         totalUsersCount: state.communityPage.totalUsersCount,
         currentPage: state.communityPage.currentPage,
         isFetching: state.communityPage.isFetching,
+        buttonBlock: state.communityPage.buttonBlock,
     }
 }
 
 const TopUserLogic = connect(mapStateToProps,
-    {subscribeUser, setUsers, setCurrentPage, setTotalUsersCount, toggleFetching}
+    {subscribeUser, setUsers, setCurrentPage, setTotalUsersCount, toggleFetching, toggleButton}
 )(TopUserClass)
 export default TopUserLogic

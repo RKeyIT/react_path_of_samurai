@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./TopUser.module.css";
-import Button from "../../../Action/Button/Button";
 import {Link} from "react-router-dom";
-import axios from "axios";
+import {API} from "../../../../api/api";
 
 // TODO: The first line of users is TOP users of platform by one of skills
 
@@ -19,7 +18,6 @@ const TopUserUI = (props) => {
     let curPF = ((curP - 5) < 0) ? 0 : curP - 3;
     let curPL = curP + 2;
     let slicedPages = pages.slice(curPF, curPL);
-
     return (
         <>
             {
@@ -36,40 +34,29 @@ const TopUserUI = (props) => {
                             </div>
                             <div>{el.id}</div>
                             <div>
-                                <Button text={el.followed ? 'unsubscribe' : 'subscribe'}
-                                        callback={() => {
-                                            el.followed
-                                                ?
-                                                axios
-                                                    .delete(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`,
-                                                        {
-                                                            withCredentials: true,
-                                                            headers: {
-                                                                "API-KEY": "a5a30551-a391-47c5-bb3f-e86cddddc51a"
-                                                            }
-                                                        }
-                                                    )
-                                                    .then(response => {
-                                                        if (response.data.resultCode === 0) {
-                                                            props.subscribeUser(el.id)
-                                                        }
-                                                    })
-                                                :
-                                                axios
-                                                    .post(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`,
-                                                        null, {
-                                                            withCredentials: true,
-                                                            headers: {
-                                                                "API-KEY": "a5a30551-a391-47c5-bb3f-e86cddddc51a"
-                                                            }
-                                                        }
-                                                    )
-                                                    .then(response => {
-                                                        if (response.data.resultCode === 0) {
-                                                            props.subscribeUser(el.id)
-                                                        }
-                                                    });
-                                        }}/>
+                                <button
+                                    disabled={props.buttonBlock.some(id => id === el.id)}
+                                    onClick={() => {
+                                        props.toggleButton(el.id);
+                                        el.followed
+                                            ?
+                                            API.deleteSubscription(el.id).then(data => {
+                                                if (data.resultCode === 0) {
+                                                    props.subscribeUser(el.id)
+                                                }
+                                                props.toggleButton(el.id);
+                                            })
+                                            :
+                                            API.addSubscription(el.id).then(data => {
+                                                if (data.resultCode === 0) {
+                                                    props.subscribeUser(el.id)
+                                                }
+                                                props.toggleButton(el.id);
+                                            })
+                                    }}
+                                >
+                                    {el.followed ? 'unsubscribe' : 'subscribe'}
+                                </button>
                             </div>
                         </div>
                     )

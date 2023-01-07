@@ -9,8 +9,11 @@ const Button = (props) => {
 
     return (
         <div className={DoubleStyleClasses(props.buttonWrapper, styles.wrapper)}>
-            <button className={DoubleStyleClasses(props.button, styles.button)}
-                    onClick={props.callback}>
+            <button
+                className={DoubleStyleClasses(props.button, styles.button)}
+                disabled={props.disabled}
+                onClick={props.callback}
+            >
                 {props.text}
             </button>
         </div>
