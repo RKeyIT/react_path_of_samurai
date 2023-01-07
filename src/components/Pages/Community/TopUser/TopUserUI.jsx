@@ -1,10 +1,8 @@
 import React from "react";
 import styles from "./TopUser.module.css";
 import {Link} from "react-router-dom";
-import {API} from "../../../../api/api";
 
 // TODO: The first line of users is TOP users of platform by one of skills
-
 
 const TopUserUI = (props) => {
     let countOfPages = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -36,24 +34,9 @@ const TopUserUI = (props) => {
                             <div>
                                 <button
                                     disabled={props.buttonBlock.some(id => id === el.id)}
-                                    onClick={() => {
-                                        props.toggleButton(el.id);
-                                        el.followed
-                                            ?
-                                            API.deleteSubscription(el.id).then(data => {
-                                                if (data.resultCode === 0) {
-                                                    props.subscribeUser(el.id)
-                                                }
-                                                props.toggleButton(el.id);
-                                            })
-                                            :
-                                            API.addSubscription(el.id).then(data => {
-                                                if (data.resultCode === 0) {
-                                                    props.subscribeUser(el.id)
-                                                }
-                                                props.toggleButton(el.id);
-                                            })
-                                    }}
+                                    onClick={ () => { el.followed ? props.deleteSubscription(el.id)
+                                            : props.addSubscription(el.id)}
+                                    }
                                 >
                                     {el.followed ? 'unsubscribe' : 'subscribe'}
                                 </button>

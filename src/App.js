@@ -22,6 +22,7 @@ const App = () => {
                                 <Route path="/" element={<ProfileLogic/>}/>
                                 <Route path="/profile" element={<ProfileLogic/>}/>
                                 <Route path="/profile/:userId" element={<ProfileLogic/>}/>
+                                <Route path="/react_path_of_samurai" element={<ProfileLogic/>}/>
                                 <Route path="/dialogues/*" element={<DialoguesLogic/>}/>
                                 <Route path="/community/*" element={<CommunityLogic/>}/>
                                 {/*<Route path="/settings/*"></Route> element={}*/}

@@ -1,45 +1,27 @@
 import {connect} from "react-redux";
 import {
-    setCurrentPage, setTotalUsersCount,
-    setUsers,
-    subscribeUser, toggleButton, toggleFetching
+    getUsersThunk, setCurrentPage,
+    subscribeUser, toggleButton,
+    addSubscription, deleteSubscription
 } from "../../../../redux/community-reducer";
 import React from "react";
 import TopUserUI from "./TopUserUI";
 import Preloader from "../../../Action/Preloader/Preloader";
-import { API } from "../../../../api/api";
 
 
 class TopUserClass extends React.Component {
-
-    setUsers(users) {
-        return this.props.setUsers(users)
-    }
-
-    toggleFetching = () => {
-        return this.props.toggleFetching()
-    }
 
     toggleButton = () => {
         return this.props.toggleButton()
     }
 
     componentDidMount() {
-        this.toggleFetching();
-        API.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-                this.toggleFetching();
-                this.setUsers(data.items);
-                this.props.setTotalUsersCount(data.totalCount)
-            });
+        this.props.getUsersThunk(this.props.currentPage, this.props.pageSize)
     }
 
     pageChanger = pageNumber => {
-        this.toggleFetching();
         this.props.setCurrentPage(pageNumber)
-        API.getUsers(pageNumber, this.props.pageSize).then(data => {
-                this.toggleFetching();
-                this.setUsers(data.items)
-            });
+        this.props.getUsersThunk(pageNumber, this.props.pageSize)
     }
 
 
@@ -54,6 +36,8 @@ class TopUserClass extends React.Component {
                 subscribeUser={this.props.subscribeUser}
                 buttonBlock={this.props.buttonBlock}
                 toggleButton={this.props.toggleButton}
+                addSubscription={this.props.addSubscription}
+                deleteSubscription={this.props.deleteSubscription}
             />
             {this.props.isFetching ? <Preloader/> : null}
         </>
@@ -72,6 +56,7 @@ const mapStateToProps = (state) => {
 }
 
 const TopUserLogic = connect(mapStateToProps,
-    {subscribeUser, setUsers, setCurrentPage, setTotalUsersCount, toggleFetching, toggleButton}
+    {subscribeUser, setCurrentPage, toggleButton,
+        getUsersThunk, addSubscription, deleteSubscription}
 )(TopUserClass)
 export default TopUserLogic
